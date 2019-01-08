@@ -35,7 +35,7 @@ URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
 
 URxvt*transparent:       true
-URxvt*shading:       16
+URxvt*shading:       35
 
 URxvt.font: xft:UbuntuMono Nerd Font Mono:pixelsize=17
 URxvt.letterSpace: 0
@@ -48,3 +48,5 @@ URxvt.url-launcher: Browser?
 
 URxvt.matcher.button: 1
 
+URxvt.iso14755: false
+URxvt.iso14755_52: false
