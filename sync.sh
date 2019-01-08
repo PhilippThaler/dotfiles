@@ -1,6 +1,7 @@
 DOTFILES=$HOME/Projects/dotfiles
 
 rsync -rv $HOME/.i3 $DOTFILES
+rsync -rv $HOME/.Xresources $DOTFILES
 rsync -rv $HOME/.zshrc $DOTFILES
 rsync -rv $HOME/.config/polybar $DOTFILES/.config
 rsync -rv $HOME/.config/urxvtconfig $DOTFILES/.config
