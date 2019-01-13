@@ -68,6 +68,7 @@ bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/pn
 bindsym $mod+Print --release exec --no-startup-id maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Print --release exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+Shift+y exec i3-layout-manager
 
 # focus_follows_mouse no
 
@@ -182,6 +183,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # Open applications on specific workspaces
 assign [class="Whatsie"] $ws1
 assign [class="Thunderbird"] $ws4
+assign [class="Steam"] $ws5
 for_window [class="intellij-idea-ultimate-edition"] move to workspace $ws3
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
@@ -289,9 +291,10 @@ exec_always --no-startup-id fix_xcursor
 exec_always feh --bg-scale ~./wallpapers/5CtFOQb.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec firefox
-exec whatsie
-exec thunderbird
+exec --no-startup-id firefox
+exec --no-startup-id whatsie
+exec --no-startup-id thunderbird
+exec --no-startup-id steam
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
