@@ -1,0 +1,50 @@
+[
+{
+	"border": "pixel",
+		"floating": "auto_off",
+		"fullscreen_mode": 0,
+		"layout": "splith",
+		"percent": 0.222222222222222,
+		"type": "con",
+		"nodes": [
+		{
+			"border": "pixel",
+			"current_border_width": 1,
+			"floating": "auto_off",
+			"geometry": {
+				"height": 1394,
+				"width": 1259,
+				"x": 12,
+				"y": 32
+			},
+			"name": "Verge Science - YouTube - Mozilla Firefox",
+			"percent": 0.5,
+			"swallows": [
+			{
+				"instance": "^Navigator$"
+			}
+			],
+			"type": "con"
+		},
+		{
+			"border": "pixel",
+			"current_border_width": 1,
+			"floating": "auto_off",
+			"geometry": {
+				"height": 1419,
+				"width": 1259,
+				"x": 1288,
+				"y": 33
+			},
+			"name": "Whatsie",
+			"percent": 0.5,
+			"swallows": [
+			{
+				"instance": "^whatsie$"
+			}
+			],
+			"type": "con"
+		}
+	]
+}
+]
