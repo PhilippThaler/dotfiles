@@ -284,11 +284,10 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000'
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000' -corners -000
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-
-exec_always feh --bg-scale ~./wallpapers/5CtFOQb.jpg
+exec --no-startup-id xrandr -s 2560x1440
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id firefox
