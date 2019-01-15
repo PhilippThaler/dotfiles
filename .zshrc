@@ -99,4 +99,4 @@ export VISUAL='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='awesome-fontconfig'
-
+neofetch
