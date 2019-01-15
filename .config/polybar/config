@@ -46,6 +46,13 @@ alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
+memory     = #ff22ff
+battery    = #ffcc00
+temperature= #ff3300
+date       = #99ff66
+cpu        = #6699ff
+netspeed   = #ff9933
+volume     = #9966ff
 ; =======================
 
 ; Gotham theme ==========
@@ -121,7 +128,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = networkspeedup networkspeeddown memory2 cpu2 aur-updates avg-battery pavolume date
+modules-right = networkspeedup networkspeeddown temperature1 memory2 cpu2 avg-battery pavolume date
 
 separator = " "
 
@@ -749,7 +756,7 @@ bar-empty = ─
 type = custom/script
 exec = "count=$(acpi -b | wc -l); sum=$(acpi -b | egrep -o '[0-9]{1,3}%' | tr -d '%' | xargs -I% echo -n '+%'); echo  $(( sum / count))%"
 interval = 5
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.battery}
 format-background = ${colors.background}
 
 ################################################################################
@@ -861,10 +868,10 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.cpu}
 format-background = ${colors.background}
 format-prefix = " "
-format-prefix-foreground = ${colors.background}
+format-prefix-foreground = ${colors.cpu}
 
 label-font = 1
 
@@ -880,7 +887,7 @@ format = <label>
 ;   %percentage% (default) - total cpu load
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
-label = Cpu %percentage:3%%
+label = Cpu%percentage:3%%
 
 ################################################################################
 
@@ -896,8 +903,8 @@ date-alt = " %a %b %d, %Y"
 time = %l:%M%p
 time-alt = %l:%M%p
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.date}
+format-foreground = ${colors.date}
 format-background = ${colors.background}
 label = "%date% %time% "
 
@@ -1089,8 +1096,8 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.memory}
+format-foreground = ${colors.memory}
 format-background = ${colors.background}
 
 ################################################################################
@@ -1154,8 +1161,8 @@ interface = wlp4s0
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
+format-connected-prefix-foreground = ${colors.netspeed}
+format-connected-foreground = ${colors.netspeed}
 format-connected-background = ${colors.background}
 
 ################################################################################
@@ -1170,8 +1177,8 @@ interface = wlp4s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
+format-connected-prefix-foreground = ${colors.netspeed}
+format-connected-foreground = ${colors.netspeed}
 format-connected-background = ${colors.background}
 
 ################################################################################
@@ -1199,7 +1206,7 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.volume}
 format-background = ${colors.background}
 
 
@@ -1275,25 +1282,27 @@ thermal-zone = 0
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
 
 warn-temperature = 70
 format = <ramp> <label>
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.temperature}
 format-background = ${colors.background}
-format-underline = #c72581
+format-label-foreground = ${colors.temperature}
+format-label-background = ${colors.background}
 format-warn = <ramp> <label-warn>
-format-warn-underline = #c7254f
+format-warn-underline = ${colors.temperature}
 label = %temperature%
 label-warn =  %temperature%
-label-warn-foreground = #c7254f
+label-warn-foreground = ${colors.temperature}
+label-warn-background = ${colors.background}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-ramp-foreground =${colors.foreground}
+ramp-foreground = ${colors.temperature}
 
 ################################################################################
 
