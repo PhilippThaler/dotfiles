@@ -144,8 +144,8 @@ bindsym $mod+Ctrl+Left workspace prev
 set $ws1 "1: Browser"
 set $ws2 "2: Terminals"
 set $ws3 "3: Workspace"
-set $ws4 "4: Email"
-set $ws5 "5: Multimedia"
+set $ws4 "4: Multimedia"
+set $ws5 "5: Email"
 set $ws6 "6:"
 set $ws7 "7:"
 set $ws8 "8:"
@@ -289,7 +289,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrandr -s 2560x1440
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
+exec_always --no-startup-id feh --bg-scale ~/.wallpaper/3840x2160-Sunset\ Horizon\ Minimal\ 4K587807922.jpg
 exec --no-startup-id firefox
 exec --no-startup-id whatsie
 exec --no-startup-id thunderbird
