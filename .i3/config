@@ -290,6 +290,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrandr -s 2560x1440
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper/minimal_sunset.jpg
+exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
 exec --no-startup-id firefox
 exec --no-startup-id whatsie
 exec --no-startup-id thunderbird
