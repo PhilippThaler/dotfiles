@@ -46,13 +46,13 @@ alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
-memory     = #ff22ff
-battery    = #ffcc00
-temperature= #ff3300
-date       = #99ff66
-cpu        = #6699ff
-netspeed   = #ff9933
-volume     = #9966ff
+memory     = #ffee93
+battery    = #adf7b6
+temperature= #ffc09f
+date       = #e1f4cb
+cpu        = #fcf5c7
+netspeed   = #79addc
+volume     = #f8c7cc
 ; =======================
 
 ; Gotham theme ==========
@@ -91,7 +91,7 @@ override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
-height = 20
+height = 35
 ;offset-x = 1%
 ;offset-y = 1%
 
@@ -119,6 +119,7 @@ padding-right = 1
 module-margin-left = 0
 module-margin-right = 0
 
+
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "UbuntuMono Nerd Font:size=13;2"
 font-1 = "UbuntuMono Nerd Font:size=17;3"
@@ -128,9 +129,9 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = networkspeedup networkspeeddown temperature1 memory2 cpu2 avg-battery pavolume date
+modules-right = networkspeedup networkspeeddown temperature2 memory2 cpu2 avg-battery pavolume date
 
-separator = " "
+; separator = " "
 
 ;dim-value = 1.0
 
@@ -756,8 +757,9 @@ bar-empty = ─
 type = custom/script
 exec = "count=$(acpi -b | wc -l); sum=$(acpi -b | egrep -o '[0-9]{1,3}%' | tr -d '%' | xargs -I% echo -n '+%'); echo  $(( sum / count))%"
 interval = 5
-format-foreground = ${colors.battery}
-format-background = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.battery}
+format-padding = 2
 
 ################################################################################
 
@@ -868,10 +870,11 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = ${colors.cpu}
-format-background = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.cpu}
 format-prefix = " "
-format-prefix-foreground = ${colors.cpu}
+format-prefix-foreground = ${colors.background}
+format-padding = 2
 
 label-font = 1
 
@@ -903,9 +906,10 @@ date-alt = " %a %b %d, %Y"
 time = %l:%M%p
 time-alt = %l:%M%p
 format-prefix = " "
-format-prefix-foreground = ${colors.date}
-format-foreground = ${colors.date}
-format-background = ${colors.background}
+format-prefix-foreground = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.date}
+format-padding = 2
 label = "%date% %time% "
 
 #################################################################
@@ -1096,9 +1100,10 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = ${colors.memory}
-format-foreground = ${colors.memory}
-format-background = ${colors.background}
+format-prefix-foreground = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.memory}
+format-padding = 2
 
 ################################################################################
 
@@ -1161,9 +1166,10 @@ interface = wlp4s0
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.netspeed}
-format-connected-foreground = ${colors.netspeed}
-format-connected-background = ${colors.background}
+format-connected-prefix-foreground = ${colors.background}
+format-connected-foreground = ${colors.background}
+format-connected-background = ${colors.netspeed}
+format-connected-padding = 2
 
 ################################################################################
 
@@ -1177,9 +1183,10 @@ interface = wlp4s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
-format-connected-prefix-foreground = ${colors.netspeed}
-format-connected-foreground = ${colors.netspeed}
-format-connected-background = ${colors.background}
+format-connected-prefix-foreground = ${colors.background}
+format-connected-foreground = ${colors.background}
+format-connected-background = ${colors.netspeed}
+format-connected-padding = 2
 
 ################################################################################
 
@@ -1206,10 +1213,9 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-foreground = ${colors.volume}
-format-background = ${colors.background}
-
-
+format-foreground = ${colors.background}
+format-background = ${colors.volume}
+format-padding = 2
 
 ################################################################################
 
@@ -1286,23 +1292,25 @@ hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
 
 warn-temperature = 70
 format = <ramp> <label>
-format-foreground = ${colors.temperature}
-format-background = ${colors.background}
-format-label-foreground = ${colors.temperature}
-format-label-background = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.temperature}
+format-label-foreground = ${colors.background}
+format-label-background = ${colors.temperature}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${colors.temperature}
+format-warn-foreground = ${colors.background}
+format-warn-underline = ${colors.background}
+format-padding = 2
 label = %temperature%
 label-warn =  %temperature%
-label-warn-foreground = ${colors.temperature}
-label-warn-background = ${colors.background}
+label-warn-foreground = ${colors.background}
+format-label-warn-background = ${colors.temperature}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-ramp-foreground = ${colors.temperature}
+ramp-foreground = ${colors.background}
 
 ################################################################################
 
@@ -1311,8 +1319,8 @@ type = custom/script
 exec = ~/.config/polybar/scripts/tempcores.sh
 interval = 2
 format-padding = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.temperature}
 format-underline = #C1B93E
 format-prefix-foreground = #C1B93E
 label =  %output:0:150:%
