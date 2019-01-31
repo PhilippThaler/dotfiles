@@ -83,6 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # fi
 export EDITOR='vim'
 export VISUAL='vim'
+export PATH=~/Android/Sdk/platform-tools:$PATH
+export ANDROID_HOME=~/Android/Sdk
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

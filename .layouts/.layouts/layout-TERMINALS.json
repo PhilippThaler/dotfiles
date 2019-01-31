@@ -12,13 +12,13 @@
 			"current_border_width": 1,
 			"floating": "auto_off",
 			"geometry": {
-				"height": 1394,
-				"width": 1259,
+				"height": 1379,
+				"width": 1515,
 				"x": 0,
 				"y": 0
 			},
-			"name": "springframeworkguru/spring5webapp: Example Spring 5 Web Application - Mozilla Firefox",
-			"percent": 0.5,
+			"name": "Feature Tour | Kubuntu - Mozilla Firefox",
+			"percent": 0.6,
 			"swallows": [
 			{
 				"instance": "^Navigator$"
@@ -30,7 +30,7 @@
 			"border": "pixel",
 			"floating": "auto_off",
 			"layout": "splitv",
-			"percent": 0.5,
+			"percent": 0.4,
 			"type": "con",
 			"nodes": [
 			{
@@ -62,7 +62,7 @@
 					"x": 0,
 					"y": 0
 				},
-				"name": "philipp@philipp-laptop: ~/Projects/dotfiles",
+				"name": "philipp@philipp-laptop: ~",
 				"percent": 0.5,
 				"swallows": [
 				{

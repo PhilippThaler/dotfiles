@@ -184,6 +184,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="Whatsie"] $ws1
 assign [class="Steam"] $ws4
 assign [class="Thunderbird"] $ws5
+assign [class="TickTick"] $ws5
 for_window [class="intellij-idea-ultimate-edition"] move to workspace $ws3
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
@@ -295,6 +296,7 @@ exec --no-startup-id firefox
 exec --no-startup-id whatsie
 exec --no-startup-id thunderbird
 exec --no-startup-id steam
+exec --no-startup-id chromium --profile-directory=Default --app-id=gdeffgmadgcjajjbkeeajianmfpenfmi
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
