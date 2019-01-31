@@ -187,7 +187,7 @@ assign [class="Thunderbird"] $ws5
 # TickTick
 assign [class="Chromium" instance="crx_gdeffgmadgcjajjbkeeajianmfpenfmi"] $ws5
 # Intellij
-for_window [class="jetbrains-idea"] move to workspace $ws3
+assign [class="jetbrains-idea"] $ws3
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 
