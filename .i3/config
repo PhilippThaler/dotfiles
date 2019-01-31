@@ -184,8 +184,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="Whatsie"] $ws1
 assign [class="Steam"] $ws4
 assign [class="Thunderbird"] $ws5
+# TickTick
 assign [class="Chromium" instance="crx_gdeffgmadgcjajjbkeeajianmfpenfmi"] $ws5
-for_window [class="intellij-idea-ultimate-edition"] move to workspace $ws3
+# Intellij
+for_window [class="jetbrains-idea"] move to workspace $ws3
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 
