@@ -9,5 +9,6 @@ rsync -rv $DOTFILES/.config/ranger $HOME/.config
 rsync -rv $DOTFILES/.layouts $HOME
 rsync -rv $DOTFILES/sync.sh $HOME
 rsync -rv $DOTFILES/restore.sh $HOME
+rsync -rv $DOTFILES/.vimrc $HOME
 
 echo Restore finished
