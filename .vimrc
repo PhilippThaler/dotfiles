@@ -1,2 +1,3 @@
 set clipboard+=unnamedplus
-set number
+syntax on
+set number relativenumber

@@ -11,5 +11,6 @@ rsync -rv $HOME/.layouts $DOTFILES/.layouts
 rsync -rv $HOME/sync.sh $DOTFILES
 rsync -rv $HOME/restore.sh $DOTFILES
 rsync -rv $HOME/.vimrc $DOTFILES
+rsync -rv $HOME/.config/nvim $DOTFILES/.config
 
 echo Sync finished

@@ -81,8 +81,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PATH=~/Android/Sdk/platform-tools:$PATH
 export ANDROID_HOME=~/Android/Sdk
 # Compilation flags
@@ -99,6 +99,9 @@ export ANDROID_HOME=~/Android/Sdk
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias nvimconfig="nvim .config/nvim/init.vim"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='awesome-fontconfig'
 neofetch
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
