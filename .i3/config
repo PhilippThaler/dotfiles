@@ -300,6 +300,10 @@ exec --no-startup-id thunderbird
 exec --no-startup-id steam
 exec --no-startup-id chromium --profile-directory=Default --app-id=gdeffgmadgcjajjbkeeajianmfpenfmi
 exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
+# swap caps lock and escape
+exec_always --no-startup-id xmodmap -e "clear lock"
+exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources

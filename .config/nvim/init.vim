@@ -6,6 +6,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set mouse=""
+set clipboard+=unnamedplus
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
