@@ -48,6 +48,10 @@ exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
+# Fixing audio buttons
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%" 
 ################################################################################################
 
 # Screen brightness controls
@@ -291,6 +295,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock -corners -000
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrandr -s 2560x1440
+exec --no-startup-id xrandr --dpi 120
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper/minimal_sunset.jpg
 exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
