@@ -9,6 +9,9 @@ set mouse=""
 set clipboard+=unnamedplus
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'joshdick/onedark.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
@@ -21,6 +24,8 @@ Plug 'bling/vim-airline'
 Plug 'w0rp/ale'
 Plug 'Townk/vim-autoclose'
 call plug#end()
+
+colorscheme onedark
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"

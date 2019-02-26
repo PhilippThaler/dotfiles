@@ -101,7 +101,7 @@ export ANDROID_HOME=~/Android/Sdk
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nvimconfig="nvim .config/nvim/init.vim"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
 neofetch
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
