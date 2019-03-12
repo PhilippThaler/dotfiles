@@ -14,4 +14,6 @@ rsync -rv $HOME/restore.sh $DOTFILES
 rsync -rv $HOME/.vimrc $DOTFILES
 rsync -rv $HOME/.config/nvim $DOTFILES/.config
 
+git -C $DOTFILES commit -a
+
 echo Sync finished

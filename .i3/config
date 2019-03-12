@@ -17,7 +17,6 @@ hide_edge_borders none
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -27,7 +26,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -64,6 +63,7 @@ bindsym $mod+F2 exec firefox
 bindsym $mod+Ctrl+F3 exec pcmanfm
 bindsym $mod+F3 exec urxvt -e ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
+bindsym $mod+F4 exec "$HOME/Android/Sdk/emulator/emulator @Pixel_2_XL_API_28"
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -295,7 +295,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock -corners -000
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrandr -s 2560x1440
-exec --no-startup-id xrandr --dpi 120
+exec --no-startup-id xrandr --dpi 150
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper/minimal_sunset.jpg
 exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500

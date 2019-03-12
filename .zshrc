@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 export EDITOR='nvim'
 export VISUAL='nvim'
+export TERM='termite'
 export PATH=~/Android/Sdk/platform-tools:$PATH
 export ANDROID_HOME=~/Android/Sdk
 # Compilation flags
@@ -100,6 +101,7 @@ export ANDROID_HOME=~/Android/Sdk
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nvimconfig="nvim .config/nvim/init.vim"
+alias ls='lsd'
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='nerdfont-complete'
 neofetch

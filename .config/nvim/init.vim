@@ -5,7 +5,6 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set mouse=""
 set clipboard+=unnamedplus
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -30,3 +29,4 @@ colorscheme onedark
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
+map <C-n> :NERDTreeToggle
