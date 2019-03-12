@@ -15,5 +15,7 @@ rsync -rv $HOME/.vimrc $DOTFILES
 rsync -rv $HOME/.config/nvim $DOTFILES/.config
 
 git -C $DOTFILES commit -a
+git -C $DOTFILES push
 
 echo Sync finished
+
