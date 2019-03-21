@@ -100,7 +100,7 @@ export ANDROID_HOME=~/Android/Sdk
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias nvimconfig="nvim .config/nvim/init.vim"
+alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias ls='lsd'
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='nerdfont-complete'
