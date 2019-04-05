@@ -13,6 +13,7 @@ set clipboard+=unnamedplus
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
@@ -65,7 +66,8 @@ function! ToggleCalendar()
 endfunction
 :autocmd FileType vimwiki map c :call ToggleCalendar()
 
-colorscheme onedark
+set termguicolors
+colorscheme one
 
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
