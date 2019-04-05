@@ -11,6 +11,7 @@ rsync -rv $HOME/.config/ranger $DOTFILES/.config
 rsync -rv $HOME/.layouts $DOTFILES/
 rsync -rv $HOME/sync.sh $DOTFILES
 rsync -rv $HOME/restore.sh $DOTFILES
+rsync -rv $HOME/resetaudio.sh $DOTFILES
 rsync -rv $HOME/.vimrc $DOTFILES
 rsync -rv $HOME/.config/nvim $DOTFILES/.config
 
