@@ -64,10 +64,12 @@
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -98,10 +100,17 @@ export ANDROID_HOME=~/Android/Sdk
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sudo="sudo "
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias lampp="/opt/lampp/lampp"
 alias ls='lsd'
+alias xterm='termite'
+
+alias -s {pdf}=evince
+bindkey -v
+bindkey '^ ' autosuggest-accept
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='nerdfont-complete'
 neofetch

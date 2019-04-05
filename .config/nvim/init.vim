@@ -26,16 +26,16 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'w0rp/ale'
 Plug 'Townk/vim-autoclose'
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+"function! BuildComposer(info)
+"  if a:info.status != 'unchanged' || a:info.force
+"    if has('nvim')
+"      !cargo build --release
+"    else
+"      !cargo build --release --no-default-features --features json-rpc
+"    endif
+"  endif
+"endfunction
+"Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vimwiki/vimwiki'
