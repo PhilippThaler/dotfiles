@@ -4,7 +4,7 @@
 		"floating": "auto_off",
 		"fullscreen_mode": 0,
 		"layout": "splith",
-		"percent": 0.2,
+		"percent": null,
 		"type": "con",
 		"nodes": [
 			{
@@ -12,12 +12,12 @@
 				"current_border_width": 1,
 				"floating": "auto_off",
 				"geometry": {
-					"height": 1408,
-					"width": 2528,
+					"height": 1379,
+					"width": 1259,
 					"x": 0,
 					"y": 0
 				},
-				"name": "Spring Boot: ApplicationRunner and CommandLineRunner - DZone Java - Mozilla Firefox",
+				"name": "Mozilla Firefox",
 				"percent": 0.6,
 				"swallows": [
 					{
@@ -31,12 +31,12 @@
 				"current_border_width": 1,
 				"floating": "auto_off",
 				"geometry": {
-					"height": 1431,
-					"width": 1253,
-					"x": 1290,
-					"y": 17
+					"height": 1404,
+					"width": 496,
+					"x": 776,
+					"y": 48
 				},
-				"name": "Whatsie",
+				"name": "Whatsie (1)",
 				"percent": 0.4,
 				"swallows": [
 					{

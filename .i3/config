@@ -59,11 +59,13 @@ bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox
+bindsym $mod+F2 exec firefox-beta
 bindsym $mod+Ctrl+F3 exec pcmanfm
 bindsym $mod+F3 exec termite -e ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F4 exec "$HOME/Android/Sdk/emulator/emulator @Pixel_2_XL_API_28"
+
+
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+F6 exec ~/resetaudio.sh
 bindsym $mod+t exec --no-startup-id pkill compton
@@ -296,12 +298,13 @@ exec --no-startup-id xautolock -time 10 -locker blurlock -corners -000
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id xrandr -s 2560x1440
-exec --no-startup-id xrandr --dpi 150
+exec --no-startup-id xrandr --dpi 120
 exec --no-startup-id rmmod pcspkr
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper/minimal_sunset.jpg
 exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
-exec --no-startup-id firefox
+exec --no-startup-id i3-battery-popup -N -L 15
+exec --no-startup-id firefox-beta
 exec --no-startup-id whatsie
 exec --no-startup-id thunderbird
 exec --no-startup-id steam

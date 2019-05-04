@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/philipp/.oh-my-zsh"
+  export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,15 +105,16 @@ alias sudo="sudo "
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias i3config="nvim ~/.i3/config"
 alias lampp="/opt/lampp/lampp"
 alias ls='lsd'
 alias xterm='termite'
+alias t='task'
 
 alias -s {pdf}=evince
-bindkey -v
 bindkey '^ ' autosuggest-accept
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 POWERLEVEL9K_MODE='nerdfont-complete'
-neofetch
+neofetch | lolcat
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
