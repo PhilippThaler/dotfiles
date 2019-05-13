@@ -308,7 +308,6 @@ exec --no-startup-id firefox-beta
 exec --no-startup-id whatsie
 exec --no-startup-id thunderbird
 exec --no-startup-id steam
-exec --no-startup-id chromium --profile-directory=Default --app-id=gdeffgmadgcjajjbkeeajianmfpenfmi
 exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
 # swap caps lock and escape
 exec_always --no-startup-id xmodmap -e "clear lock"

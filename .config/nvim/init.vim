@@ -10,6 +10,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set clipboard+=unnamedplus
+set spelllang=en_us,de_de
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'joshdick/onedark.vim'
@@ -41,7 +42,26 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'ferrine/md-img-paste.vim'
 call plug#end()
+
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+let g:table_mode_corner='+'
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
 
 " vimwiki stuff "
 " Run multiple wikis "
@@ -66,6 +86,11 @@ function! ToggleCalendar()
 endfunction
 :autocmd FileType vimwiki map c :call ToggleCalendar()
 
+autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" there are some defaults for image directory and image name, you can change them
+" let g:mdip_imgdir = 'img'
+" let g:mdip_imgname = 'image'
+"
 set termguicolors
 colorscheme one
 

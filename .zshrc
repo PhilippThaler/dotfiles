@@ -84,9 +84,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='/usr/bin/nvim'
+export VISUAL='/usr/bin/nvim'
 export TERM='termite'
+export TERMCMD='termite'
 export PATH=~/Android/Sdk/platform-tools:$PATH
 export ANDROID_HOME=~/Android/Sdk
 # Compilation flags
