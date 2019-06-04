@@ -59,7 +59,7 @@ bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox-beta
+bindsym $mod+F2 exec qutebrowser
 bindsym $mod+Ctrl+F3 exec pcmanfm
 bindsym $mod+F3 exec termite -e ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
@@ -225,6 +225,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="mpv"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -304,7 +305,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper/minimal_sunset.jpg
 exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
 exec --no-startup-id i3-battery-popup -N -L 15
-exec --no-startup-id firefox-beta
+exec --no-startup-id qutebrowser
 exec --no-startup-id whatsie
 exec --no-startup-id thunderbird
 exec --no-startup-id steam

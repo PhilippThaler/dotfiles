@@ -111,6 +111,7 @@ alias lampp="/opt/lampp/lampp"
 alias ls='lsd'
 alias xterm='termite'
 alias t='task'
+alias mutt='neomutt'
 
 alias -s {pdf}=evince
 bindkey '^ ' autosuggest-accept
