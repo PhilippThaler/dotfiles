@@ -37,6 +37,8 @@ bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show d
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
+bindsym $mod+Shift+p exec --no-startup-id $HOME/bin/switchmonitors
+
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -366,8 +368,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 40
+gaps outer 15
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>

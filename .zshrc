@@ -112,6 +112,7 @@ alias ls='lsd'
 alias xterm='termite'
 alias t='task'
 alias mutt='neomutt'
+alias pa='php artisan'
 
 alias -s {pdf}=evince
 bindkey '^ ' autosuggest-accept

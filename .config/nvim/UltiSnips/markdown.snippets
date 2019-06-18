@@ -4,8 +4,9 @@ snippet titletoc "create title page and toc" b
 ---
 title:
 - ${1: Documents Title}
+titlepage: true
 author:
-- ${2: Autors Name}
+- ${2: Authors Name}
 papersize:
 - a4
 fontsize:
@@ -17,10 +18,9 @@ fontfamily:
 header-includes:
 - \setlength\parindent{24pt}
 ---
-
-\maketitle
 \thispagestyle{empty}
 \clearpage
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
 \tableofcontents
 \pagenumbering{roman}
 \clearpage
@@ -116,15 +116,15 @@ endsnippet
 # Text formatting #
 ###################
 
-snippet * "italics"
+snippet italics "italics"
 *${1:${VISUAL}}*$0
 endsnippet
 
-snippet ** "bold"
+snippet bold "bold"
 **${1:${VISUAL}}**$0
 endsnippet
 
-snippet *** "bold italics"
+snippet bolditalics "bold italics"
 ***${1:${VISUAL}}***$0
 endsnippet
 

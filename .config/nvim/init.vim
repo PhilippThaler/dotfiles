@@ -1,5 +1,5 @@
 let mapleader=" "
-syntax on
+let maplocalleader=" "
 set mouse=a
 set hlsearch
 set number relativenumber
@@ -12,19 +12,42 @@ set expandtab
 set clipboard+=unnamedplus
 set spell spelllang=en_us,de_de
 set splitright
+syntax on
+
+let g:polyglot_disabled = ['latex']
 
 autocmd BufRead, BufNewFile vimwiki setlocal spell
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 1
+let g:md_pdf_viewer='zathura'
+
+let g:vimtex_view_method = 'zathura'
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_view_automatic = 0
+let g:vimtex_view_forward_search_on_start = 0
+let g:tex_flavor = "latex"
+if has("nvim")
+  let g:vimtex_latexmk_progname = 'nvr'
+endif
+
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips/']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'lervag/vimtex'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'skywind3000/asyncrun.vim'
+Plug 'conornewton/vim-pandoc-markdown-preview'
+Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'w0rp/ale'
@@ -76,7 +99,6 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-let g:table_mode_corner='+'
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 
