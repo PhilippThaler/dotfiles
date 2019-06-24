@@ -1,11 +1,29 @@
-#!/usr/bin/env bash
+#!/bin/bash
+(
+  flock 200
 
-# Terminate already running bar instances
-killall -q polybar
+  killall -q polybar
 
-# Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+  while pgrep -u $UID -x polybar > /dev/null;
+  do sleep 0.5; done
 
-# Launch bar1 and bar2
-polybar mainbar-i3 &
+  outputs=$(xrandr --query | grep " connected" | cut -d" " -f1)
+  tray_output=DVI-I-1
 
+  for m in $outputs; do
+    if [[ $m == "DVI-I-1" ]]; then
+        tray_output=$m
+    fi
+  done
+
+  for m in $outputs; do
+    export MONITOR=$m
+    export TRAY_POSITION=none
+    if [[ $m == $tray_output ]]; then
+      TRAY_POSITION=right
+    fi
+
+    polybar --reload mainbar-i3 </dev/null >/var/tmp/polybar-$m.log 2>&1 200>&- &
+    disown
+  done
+) 200>/var/tmp/polybar-launch.lock
