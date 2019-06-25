@@ -84,7 +84,8 @@ volume     = #f8c7cc
 [bar/mainbar-i3]
 ;https://github.com/jaagr/polybar/wiki/Configuration
 
-monitor = ${env:MONITOR:DVI-I-1}
+monitor = ${env:MONITOR:eDP1}
+;monitor = ${env:MONITOR:DVI-I-1}
 tray-position = ${env:TRAY_POSITION:right}
 ;monitor-fallback = HDMI1
 monitor-strict = false

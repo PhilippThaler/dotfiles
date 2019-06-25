@@ -11,7 +11,8 @@
   tray_output=DVI-I-1
 
   for m in $outputs; do
-    if [[ $m == "DVI-I-1" ]]; then
+    #if [[ $m == "DVI-I-1" ]]; then
+    if [[ $m == "eDP1" ]]; then
         tray_output=$m
     fi
   done
