@@ -113,6 +113,7 @@ alias xterm='termite'
 alias t='task'
 alias mutt='neomutt'
 alias pa='php artisan'
+alias syyu='sudo pacman -Syyu'
 
 alias -s {pdf}=evince
 bindkey '^ ' autosuggest-accept
