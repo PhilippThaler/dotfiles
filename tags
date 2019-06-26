@@ -5,6 +5,15 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+0	nvim/.config/nvim/coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json/;"	s	array:coc.preferences.formatOnSaveFiletypes
+0	nvim/.config/nvim/coc-settings.json	/^  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],$/;"	s	array:eslint.filetypes
+1	nvim/.config/nvim/coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json/;"	s	array:coc.preferences.formatOnSaveFiletypes
+1	nvim/.config/nvim/coc-settings.json	/^  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],$/;"	s	array:eslint.filetypes
+2	nvim/.config/nvim/coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json/;"	s	array:coc.preferences.formatOnSaveFiletypes
+2	nvim/.config/nvim/coc-settings.json	/^  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],$/;"	s	array:eslint.filetypes
+3	nvim/.config/nvim/coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json/;"	s	array:coc.preferences.formatOnSaveFiletypes
+3	nvim/.config/nvim/coc-settings.json	/^  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],$/;"	s	array:eslint.filetypes
+4	nvim/.config/nvim/coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json/;"	s	array:coc.preferences.formatOnSaveFiletypes
 <C-f>	nvim/.config/nvim/config/mappings.vim	/^nnoremap <C-f> :FZF<CR>$/;"	m
 <C-j>	nvim/.config/nvim/config/mappings.vim	/^inoremap <expr> <C-j> pumvisible() ? "\\<C-n>" : "\\<C-j>"$/;"	m
 <C-k>	nvim/.config/nvim/config/mappings.vim	/^inoremap <expr> <C-k> pumvisible() ? "\\<C-p>" : "\\<C-k>"$/;"	m
@@ -181,6 +190,7 @@ block_height	neofetch/.config/neofetch/config.conf	/^block_height=1$/;"	k
 block_range	neofetch/.config/neofetch/config.conf	/^block_range=(0 7)$/;"	k
 block_width	neofetch/.config/neofetch/config.conf	/^block_width=3$/;"	k
 bold	neofetch/.config/neofetch/config.conf	/^bold="on"$/;"	k
+coc.preferences.formatOnSaveFiletypes	nvim/.config/nvim/coc-settings.json	/^  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json/;"	a
 color_blocks	neofetch/.config/neofetch/config.conf	/^color_blocks="on"$/;"	k
 colors	neofetch/.config/neofetch/config.conf	/^colors=(distro)$/;"	k
 cpu_brand	neofetch/.config/neofetch/config.conf	/^cpu_brand="on"$/;"	k
@@ -191,6 +201,9 @@ cpu_temp	neofetch/.config/neofetch/config.conf	/^cpu_temp="off"$/;"	k
 crop_mode	neofetch/.config/neofetch/config.conf	/^crop_mode="normal"$/;"	k
 crop_offset	neofetch/.config/neofetch/config.conf	/^crop_offset="center"$/;"	k
 devicon	ranger/.config/ranger/devicons.py	/^def devicon(file):$/;"	f
+diagnostic.errorSign	nvim/.config/nvim/coc-settings.json	/^  "diagnostic.errorSign": "•",$/;"	s
+diagnostic.infoSign	nvim/.config/nvim/coc-settings.json	/^  "diagnostic.infoSign": "•"$/;"	s
+diagnostic.warningSign	nvim/.config/nvim/coc-settings.json	/^  "diagnostic.warningSign": "•",$/;"	s
 dir_node_exact_matches	ranger/.config/ranger/devicons.py	/^dir_node_exact_matches = {$/;"	v
 dirarg	ranger/.config/ranger/rc.conf	/^map dG  eval fm.cut(dirarg=dict(to=-1), narg=quantifier)$/;"	k
 dirarg	ranger/.config/ranger/rc.conf	/^map dgg eval fm.cut(dirarg=dict(to=0), narg=quantifier)$/;"	k
@@ -205,6 +218,7 @@ disk_show	neofetch/.config/neofetch/config.conf	/^disk_show=('\/')$/;"	k
 disk_subtitle	neofetch/.config/neofetch/config.conf	/^disk_subtitle="mount"$/;"	k
 distro_shorthand	neofetch/.config/neofetch/config.conf	/^distro_shorthand="off"$/;"	k
 dump	ranger/.config/ranger/scope.sh	/^dump() { \/bin\/echo "$output"; }$/;"	f
+eslint.filetypes	nvim/.config/nvim/coc-settings.json	/^  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],$/;"	a
 executable	ranger/.config/ranger/rifle.conf	/^mime application\/x-executable = "$1"$/;"	k
 execute	ranger/.config/ranger/commands.py	/^	def execute(self):$/;"	m	class:paste_as_root
 execute	ranger/.config/ranger/commands.py	/^    def execute(self):$/;"	m	class:fzf_select
@@ -309,7 +323,6 @@ mpc_args	neofetch/.config/neofetch/config.conf	/^mpc_args=()$/;"	k
 music_player	neofetch/.config/neofetch/config.conf	/^music_player="auto"$/;"	k
 name	ranger/.config/ranger/plugins/devicons_linemode.py	/^    name = "devicons"$/;"	v	class:DevIconsLinemode
 name	ranger/.config/ranger/plugins/devicons_linemode.py	/^    name = "filename"$/;"	v	class:DevIconsLinemodeFile
-oo	nvim/.config/nvim/config/mappings.vim	/^map oo <C-]>$/;"	m
 os_arch	neofetch/.config/neofetch/config.conf	/^os_arch="on"$/;"	k
 output	polybar/.config/polybar/scripts/pavolume.sh	/^function output() {$/;"	f
 package_managers	neofetch/.config/neofetch/config.conf	/^package_managers="on"$/;"	k
@@ -336,6 +349,8 @@ song_shorthand	neofetch/.config/neofetch/config.conf	/^song_shorthand="off"$/;"	
 speed_shorthand	neofetch/.config/neofetch/config.conf	/^speed_shorthand="off"$/;"	k
 speed_type	neofetch/.config/neofetch/config.conf	/^speed_type="bios_limit"$/;"	k
 stdout	neofetch/.config/neofetch/config.conf	/^stdout="off"$/;"	k
+suggest.echodocSupport	nvim/.config/nvim/coc-settings.json	/^  "suggest.echodocSupport": true,$/;"	b
+suggest.maxCompleteItemCount	nvim/.config/nvim/coc-settings.json	/^  "suggest.maxCompleteItemCount": 20,$/;"	n
 suggest.noselect	nvim/.config/nvim/coc-settings.json	/^  "suggest.noselect": false,$/;"	b
 terminal	ranger/.config/ranger/plugins/devicons_linemode.py	/^terminal=terminal=os.getenv('TERM')$/;"	v
 terminal	ranger/.config/ranger/rifle.conf	/^mime ^ranger\/x-terminal-emulator, has gnome-terminal = gnome-terminal -- "$@"$/;"	k
@@ -356,3 +371,4 @@ volSync	polybar/.config/polybar/scripts/pavolume.sh	/^function volSync {$/;"	f
 volUp	polybar/.config/polybar/scripts/pavolume.sh	/^function volUp {$/;"	f
 xoffset	neofetch/.config/neofetch/config.conf	/^xoffset=0$/;"	k
 yoffset	neofetch/.config/neofetch/config.conf	/^yoffset=0$/;"	k
+üü	nvim/.config/nvim/config/mappings.vim	/^map üü <C-]>$/;"	m
