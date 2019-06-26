@@ -4,6 +4,9 @@ export PATH=$PATH:~/.config/composer/vendor/bin
 
 plugins=(
   git
+  gitignore
+  npm
+  archlinux
 )
 
 POWERLEVEL9K_MODE='nerdfont-complete'
