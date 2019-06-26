@@ -13,3 +13,12 @@ autocmd FileType vimwiki nmap <silent> <leader>p :call mdip#MarkdownClipboardIma
 
 map <leader>i :w! \| !mkpdf <c-r>%<CR>
 map <leader>o :!opout <c-r>%<CR><CR>
+
+" FZF key bindings
+nnoremap <C-f> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+map üü <C-]>

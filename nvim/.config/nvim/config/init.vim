@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'lervag/vimtex'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'skywind3000/asyncrun.vim'
@@ -17,12 +18,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'tpope/vim-surround'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ferrine/md-img-paste.vim'
 call plug#end()

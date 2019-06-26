@@ -1,13 +1,18 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/philipp/.oh-my-zsh"
-export PATH=$PATH:$HOME/.config/composer/vendor/bin
+export PATH=$PATH:~/.config/composer/vendor/bin
 
 plugins=(
   git
-  zsh-autosuggestions
 )
 
+POWERLEVEL9K_MODE='nerdfont-complete'
+
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
 
@@ -17,9 +22,7 @@ export TERM='termite'
 export TERMCMD='termite'
 export PATH=~/Android/Sdk/platform-tools:$PATH
 export ANDROID_HOME=~/Android/Sdk
-export NPM_PACKAGES='$HOME/.npm-packages'
-export PATH=$PATH:$NPM_PACKAGES/bin
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export FZF_DEFAULT_COMMAND='find . -name .git -prune -o -name node_modules -prune -o -name coverage -prune -o -name tmp -prune -o -type f -print'
 
 alias sudo="sudo "
 alias ohmyzsh="nvim ~/.oh-my-zsh"
@@ -30,6 +33,7 @@ alias lampp="/opt/lampp/lampp"
 alias ls='lsd'
 alias xterm='termite'
 alias t='task'
+alias vi='nvim'
 alias mutt='neomutt'
 alias pa='php artisan'
 alias xp='xclip -selection clipboard -t image/png -o > '
@@ -45,9 +49,6 @@ alias paclf='sudo pacman -Ql'   # list files
 
 alias -s {pdf}=evince
 bindkey '^ ' autosuggest-accept
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_MODE='nerdfont-complete'
 neofetch | lolcat
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
