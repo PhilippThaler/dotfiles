@@ -21,4 +21,7 @@ let g:fzf_action = {
   \ 'ctrl-i': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+" Jump to source
 map üü <C-]>
+
+let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.html.erb,*.md'
