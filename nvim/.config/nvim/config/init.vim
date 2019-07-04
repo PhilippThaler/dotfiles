@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'alvan/vim-closetag'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'lervag/vimtex'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -22,7 +23,6 @@ Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
-Plug 'jiangmiao/auto-pairs'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'dhruvasagar/vim-table-mode'

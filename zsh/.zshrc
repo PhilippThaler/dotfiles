@@ -42,6 +42,7 @@ alias vi='nvim'
 alias mutt='neomutt'
 alias pa='php artisan'
 alias xp='xclip -selection clipboard -t image/png -o > '
+alias emu='setsid $HOME/Android/Sdk/emulator/emulator @$(/home/philipp/Android/Sdk/emulator/emulator -list-avds | fzf)'
 
 alias -s {pdf}=evince
 bindkey '^ ' autosuggest-accept
