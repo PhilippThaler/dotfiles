@@ -131,8 +131,8 @@ font-4 = "Font Awesome 5 Brands:pixelsize=16;1"
 
 modules-left = i3 xwindow
 modules-center = 
-# modules-right = date networkspeeddown networkspeedup memory2 cpu2 avg-battery pavolume 
-modules-right = date networkspeeddown networkspeedup memory2 cpu2
+modules-right = date networkspeeddown networkspeedup memory2 cpu2 avg-battery pavolume 
+# modules-right = date networkspeeddown networkspeedup memory2 cpu2
 
 ; separator = " "
 
