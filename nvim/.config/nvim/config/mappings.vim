@@ -16,6 +16,7 @@ map <leader>o :!opout <c-r>%<CR><CR>
 
 " FZF key bindings
 nnoremap <C-f> :FZF<CR>
+nnoremap <A-f> :Rg<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
@@ -24,4 +25,8 @@ let g:fzf_action = {
 " Jump to source
 map üü <C-]>
 
-let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.html.erb,*.md'
+" Coc
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

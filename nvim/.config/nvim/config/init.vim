@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'blindFS/vim-taskwarrior'
 Plug 'alvan/vim-closetag'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'lervag/vimtex'
@@ -11,15 +12,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/goyo.vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'w0rp/ale'
 Plug 'rakr/vim-one'
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'tpope/vim-surround'
-Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
