@@ -2,9 +2,15 @@
 #	React snippets
 #
 
-#
-## create class component
-#
+snippet funprops "functional props"
+: React.FunctionComponent<Props>
+endsnippet
+
+snippet iProps "interface props" b
+interface Props {
+	$1
+}
+endsnippet
 
 snippet ustate "useState" b
 const [${1:name}, set${1/\w+\s*/\u$0/}] = useState($2)

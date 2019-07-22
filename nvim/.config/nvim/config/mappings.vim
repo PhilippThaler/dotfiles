@@ -1,3 +1,12 @@
+:map <MiddleMouse> <Nop>
+:imap <MiddleMouse> <Nop>
+:map <2-MiddleMouse> <Nop>
+:imap <2-MiddleMouse> <Nop>
+:map <3-MiddleMouse> <Nop>
+:imap <3-MiddleMouse> <Nop>
+:map <4-MiddleMouse> <Nop>
+:imap <4-MiddleMouse> <Nop>
+
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 
@@ -10,12 +19,14 @@ map <C-n> :NERDTreeToggle<CR>
 
 autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 autocmd FileType vimwiki nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+autocmd BufRead,BufNewFile *neomutt* set filetype=markdown
 
 map <leader>i :w! \| !mkpdf <c-r>%<CR>
 map <leader>o :!opout <c-r>%<CR><CR>
 
 " FZF key bindings
 nnoremap <C-f> :FZF<CR>
+nnoremap <A-f> :Rg<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
