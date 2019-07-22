@@ -7,8 +7,9 @@
   "eslint.autoFixOnSave": true,
   "tsserver.formatOnType": true,
   "typescript.preferences.quoteStyle": "single",
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•"
 }
-
