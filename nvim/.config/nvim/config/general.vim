@@ -14,6 +14,7 @@ set spell spelllang=en_us,de_de
 set splitright
 syntax on
 set termguicolors
+set hidden
 colorscheme one
-
+set updatetime=300
 

@@ -24,7 +24,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
 export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
 export TERM='termite'
-export TERMCMD='termite'
+export TERMCMD='/usr/bin/termite'
 export PATH=~/Android/Sdk/platform-tools:$PATH
 export ANDROID_HOME=~/Android/Sdk
 export FZF_DEFAULT_COMMAND='find . -name .git -prune -o -name node_modules -prune -o -name coverage -prune -o -name tmp -prune -o -type f -print'
@@ -49,3 +49,4 @@ bindkey '^ ' autosuggest-accept
 neofetch | lolcat
 
 
+source /usr/share/nvm/init-nvm.sh
