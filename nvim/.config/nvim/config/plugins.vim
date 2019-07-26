@@ -12,6 +12,8 @@ if has("nvim")
   let g:vimtex_latexmk_progname = 'nvr'
 endif
 
+let g:pandoc#filetypes#pandoc_markdown = 0
+
 "CtrlP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
@@ -38,6 +40,7 @@ endfunction
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 1
 let g:md_pdf_viewer='zathura'
+let g:md_args = "--template eisvogel"
 
 " Table Mode
 inoreabbrev <expr> <bar><bar>
