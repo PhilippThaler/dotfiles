@@ -2,16 +2,13 @@
   "suggest.noselect": false,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-<<<<<<< HEAD
   "suggest.autoTrigger": "always",
   "suggest.triggerAfterInsertEnter": true,
-=======
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact"],
   "eslint.filetypes": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
   "eslint.autoFixOnSave": true,
   "tsserver.formatOnType": true,
   "typescript.preferences.quoteStyle": "single",
->>>>>>> 706987f34ca86abbfed387d593972afdf4286d4d
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
   "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "•",

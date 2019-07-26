@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-=======
-:map <MiddleMouse> <Nop>
-:imap <MiddleMouse> <Nop>
-:map <2-MiddleMouse> <Nop>
-:imap <2-MiddleMouse> <Nop>
-:map <3-MiddleMouse> <Nop>
-:imap <3-MiddleMouse> <Nop>
-:map <4-MiddleMouse> <Nop>
-:imap <4-MiddleMouse> <Nop>
-
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 
@@ -17,7 +6,6 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 map <leader>f :Goyo \| set linebreak<CR>  
 
->>>>>>> 706987f34ca86abbfed387d593972afdf4286d4d
 map <C-n> :NERDTreeToggle<CR>
 
 autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
