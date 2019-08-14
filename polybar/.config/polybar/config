@@ -123,16 +123,16 @@ module-margin-right = 0
 
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "UbuntuMono Nerd Font:size=14;2"
-font-1 = "UbuntuMono Nerd Font:size=17;3"
+font-0 = "Iosevka Nerd Font:size=14;2"
+font-1 = "Iosevka Nerd Font:size=17;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=16;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=16;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=16;1"
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = typing-speed player date networkspeeddown networkspeedup memory2 cpu2 avg-battery pavolume 
-# modules-right = date networkspeeddown networkspeedup memory2 cpu2
+# modules-right = typing-speed player date networkspeeddown networkspeedup memory2 cpu2 avg-battery pavolume 
+modules-right = typing-speed player date networkspeeddown networkspeedup memory2 cpu2 pavolume
 
 ; separator = " "
 
@@ -908,8 +908,8 @@ format-online-background = ${colors.background}
 [module/networkspeedup]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlp4s0
-;interface = enp13s0
+;interface = wlp4s0
+interface = enp13s0
 ;interface = enp0s31f6
 ;interface = enp3s0
 label-connected = "%upspeed:7%"
@@ -925,8 +925,8 @@ format-connected-padding = 2
 [module/networkspeeddown]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
 type = internal/network
-interface = wlp4s0
-;interface = enp13s0
+;interface = wlp4s0
+interface = enp13s0
 ;interface = enp0s31f6
 ;interface = enp3s0
 label-connected = "%downspeed:7%"
