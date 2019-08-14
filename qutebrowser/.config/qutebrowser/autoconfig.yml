@@ -8,16 +8,3 @@ settings:
       normal:
         <Ctrl+,>: spawn --userscript qute-pass
         M: hint links spawn mpv {hint-url}
-        strg,: spawn --userscript qute-pass
-  editor.command:
-    global:
-    - gvim
-    - -f
-    - '{file}'
-    - -c
-    - normal {line}G{column0}l
-  qt.force_software_rendering:
-    global: chromium
-  url.searchengines:
-    global:
-      DEFAULT: https://www.google.com/search?q={}

@@ -1,11 +1,3 @@
-nnoremap <silent> <space>j :<C-u>CocNext<CR>
-nnoremap <silent> <space>k :<C-u>CocPrev<CR>
-
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-map <leader>f :Goyo \| set linebreak<CR>  
-
 map <C-n> :NERDTreeToggle<CR>
 
 autocmd FileType markdown nmap <silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
@@ -27,6 +19,8 @@ let g:fzf_action = {
 map üü <C-]>
 
 " Coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 nnoremap <silent> <space>j :<C-u>CocNext<CR>
 nnoremap <silent> <space>k :<C-u>CocPrev<CR>
 
