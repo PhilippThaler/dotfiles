@@ -9,9 +9,9 @@ plugins=(
   archlinux
 )
 
+ZSH_THEME=powerlevel10k/powerlevel10k
 POWERLEVEL9K_MODE='nerdfont-complete'
 
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -43,6 +43,7 @@ alias mutt='neomutt'
 alias pa='php artisan'
 alias xp='xclip -selection clipboard -t image/png -o > '
 alias emu='setsid $HOME/Android/Sdk/emulator/emulator @$(/home/philipp/Android/Sdk/emulator/emulator -list-avds | fzf)'
+alias pass='gopass'
 
 alias -s {pdf}=evince
 bindkey '^ ' autosuggest-accept
@@ -50,3 +51,6 @@ neofetch | lolcat
 
 
 source /usr/share/nvm/init-nvm.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

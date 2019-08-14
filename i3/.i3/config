@@ -34,8 +34,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show drun -theme Arc-Dark"
-bindsym $mod+Shift+d exec --no-startup-id "passmenu"
-
+bindsym $mod+Shift+d exec --no-startup-id "gopass ls --flat | rofi -dmenu | xargs --no-run-if-empty gopass show -c"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -207,6 +206,8 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xrandr --output eDP-1-1 --mode 2560x1440
+exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id $HOME/.screenlayout/layout.sh
 exec --no-startup-id nm-applet

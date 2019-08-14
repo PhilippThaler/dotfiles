@@ -13,5 +13,6 @@
   "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•"
+  "diagnostic.infoSign": "•",
+  "python.jediEnabled": false
 }
