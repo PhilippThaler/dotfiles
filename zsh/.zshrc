@@ -20,10 +20,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
-
+export TERM='termite'
 export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
-export TERM='termite'
 export TERMCMD='/usr/bin/termite'
 export PATH=~/Android/Sdk/platform-tools:$PATH
 export ANDROID_HOME=~/Android/Sdk

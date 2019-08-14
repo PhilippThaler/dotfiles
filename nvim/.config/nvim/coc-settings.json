@@ -4,13 +4,29 @@
   "suggest.maxCompleteItemCount": 20,
   "suggest.autoTrigger": "always",
   "suggest.triggerAfterInsertEnter": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact"],
-  "eslint.filetypes": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
-  "eslint.autoFixOnSave": true,
+
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact"
+  ],
+
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+
+  "prettier.eslintIntegration": true,
+  "prettier.ignorePath": ".gitignore",
+
   "tsserver.formatOnType": true,
+
   "typescript.preferences.quoteStyle": "single",
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
-  "eslint.autoFixOnSave": true,
+
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•"
