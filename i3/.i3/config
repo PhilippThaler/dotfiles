@@ -15,9 +15,7 @@ new_float normal
 hide_edge_borders none
 
 # change borders
-bindsym $mod+u border none
 bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -33,8 +31,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show drun -theme Arc-Dark"
+bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show drun"
 bindsym $mod+Shift+d exec --no-startup-id "gopass ls --flat | rofi -dmenu | xargs --no-run-if-empty gopass show -c"
+bindsym $mod+n exec networkmanager_dmenu
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -55,7 +54,7 @@ bindsym $mod+F4 exec "$HOME/Android/Sdk/emulator/emulator @Pixel_2_API_29"
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+F6 exec resetaudio
 bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Print --release exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
@@ -73,6 +72,7 @@ focus_follows_mouse no
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
+for_window [title="Battery Warnung"] sticky enable
 for_window [class="calamares"] floating enable border normal
 for_window [class="mpv"] floating enable border pixel 0
 for_window [class="Clipgrab"] floating enable
@@ -208,7 +208,8 @@ bindsym $mod+9 exec --no-startup-id blurlock
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xrandr --output eDP-1-1 --mode 2560x1440
 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec_always --no-startup-id i3-battery-popup -m Warning: Battery is getting low!
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton.conf
 exec --no-startup-id $HOME/.screenlayout/layout.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -217,7 +218,6 @@ exec --no-startup-id clipit
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xautolock -time 10 -locker blurlock -corners -000
 exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
-exec --no-startup-id i3-battery-popup -N -L 15
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id rmmod pcspkr

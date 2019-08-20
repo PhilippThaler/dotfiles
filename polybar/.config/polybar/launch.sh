@@ -24,7 +24,7 @@
       TRAY_POSITION=right
     fi
 
-    polybar --reload mainbar-i3 </dev/null >/var/tmp/polybar-$m.log 2>&1 200>&- &
+    polybar --reload main </dev/null >/var/tmp/polybar-$m.log 2>&1 200>&- &
     disown
   done
 ) 200>/var/tmp/polybar-launch.lock
