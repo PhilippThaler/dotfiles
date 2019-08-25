@@ -4,7 +4,7 @@ Sharing my setup for Manjaro i3. My dotfiles consist of configuration files for 
 
 ## Screenshots
 
-[](./screenshots/screen1.png)
+[Neovim, Termite and Gotop](./screenshots/screen1.png)
 
 
 
