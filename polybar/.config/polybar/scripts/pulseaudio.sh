@@ -28,7 +28,7 @@ volume_print() {
     elif echo "$active_port" | grep -q headphones; then
         icon=""
     else
-        icon=""
+        icon=""
     fi
 
     muted=$(pamixer --sink "$sink" --get-mute)
