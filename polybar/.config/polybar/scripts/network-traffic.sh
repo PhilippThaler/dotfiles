@@ -17,7 +17,7 @@ print_bytes() {
 }
 
 INTERVAL=2
-INTERFACES="wlp4s0"
+INTERFACES="enp13s0"
 
 declare -A bytes
 
@@ -44,7 +44,7 @@ while true; do
         bytes[past_tx_$interface]=${bytes[now_tx_$interface]}
     done
 
-    echo " %{F#61afef} %{F#-}$(print_bytes $down) %{F#61afef}%{F#-} $(print_bytes $up)"
+    echo " %{F#61afef} %{F#abb2bf}$(print_bytes $down) %{F#61afef}%{F#abb2bf} $(print_bytes $up)"
 
     sleep $INTERVAL
 done

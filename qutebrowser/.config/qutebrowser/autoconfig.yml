@@ -3,8 +3,10 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        <Ctrl+,>: spawn --userscript qute-pass
-        M: hint links spawn mpv {hint-url}
+  content.geolocation:
+    global: false
+  content.media_capture:
+    global: false
+  content.notifications:
+    global: false
+    https://www.reddit.com: false
