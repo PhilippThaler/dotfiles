@@ -3,10 +3,5 @@
 
 config_version: 2
 settings:
-  content.geolocation:
-    global: false
-  content.media_capture:
-    global: false
-  content.notifications:
-    global: false
-    https://www.reddit.com: false
+  content.register_protocol_handler:
+    https://192.168.1.4#subscribe_to_webcal?url=%25s: true

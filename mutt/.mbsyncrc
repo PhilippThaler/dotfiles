@@ -1,0 +1,49 @@
+
+IMAPStore thaler-remote
+Host host15.ssl-net.net
+Port  993
+User philipp@thaler.fyi
+PassCmd "pass mutt-wizard-thaler"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore thaler-local
+Subfolders Verbatim
+Path ~/.local/share/mail/thaler/
+Inbox ~/.local/share/mail/thaler/INBOX
+Flatten .
+
+Channel thaler
+Expunge Both
+Master :thaler-remote:
+Slave :thaler-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+# End profile
+
+IMAPStore tsn-remote
+Host imap.tsn.at
+Port  993
+User phithaler@tsn.at
+PassCmd "pass mutt-wizard-tsn"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore tsn-local
+Subfolders Verbatim
+Path ~/.local/share/mail/tsn/
+Inbox ~/.local/share/mail/tsn/INBOX
+Flatten .
+
+Channel tsn
+Expunge Both
+Master :tsn-remote:
+Slave :tsn-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+# End profile
+

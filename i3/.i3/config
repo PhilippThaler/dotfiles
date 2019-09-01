@@ -35,6 +35,11 @@ bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show d
 bindsym $mod+Shift+d exec --no-startup-id "gopass ls --flat | rofi -dmenu | xargs --no-run-if-empty gopass show -c"
 bindsym $mod+n exec networkmanager_dmenu
 
+# sconsify
+bindsym XF86AudioPrev exec sconsify -command replay
+bindsym XF86AudioPlay exec sconsify -command play_pause
+bindsym XF86AudioNext exec sconsify -command next
+
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -214,6 +219,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock -corners -000
 exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id eyesleep
 exec --no-startup-id rmmod pcspkr
 # Swap Caps_Lock and Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
