@@ -1,7 +1,7 @@
 [calendars]
 
 [[calendar_local]]
-path = ~/.local/share/khal/personal
+path = ~/.local/share/khal/personal*
 type = discover
 
 [[contacts_local]]

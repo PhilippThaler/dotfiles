@@ -22,7 +22,7 @@ fileext = ".vcf"
 
 [storage contacts_remote]
 type = "carddav"
-url = "philippthaler.duckdns.org"
+url = "https://philippthaler.duckdns.org"
 username = "ncp"
 password.fetch = ["command", "pass", "nextcloud"]
 
