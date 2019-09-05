@@ -1,3 +1,7 @@
 tags
 ranger/.config/ranger/__pycache__*
 ranger/.config/ranger/plugins/__pycache__*
+*.vcf
+*.ics
+*dav_username*
+*dav_url*

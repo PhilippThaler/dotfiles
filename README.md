@@ -8,3 +8,4 @@ Sharing my setup for Manjaro i3. My dotfiles consist of configuration files for 
 
 
 
+

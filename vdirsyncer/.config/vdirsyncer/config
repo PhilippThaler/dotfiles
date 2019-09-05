@@ -1,0 +1,50 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+# CARDDAV
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+
+collections = ["from a", "from b"]
+metadata = ["displayname"]
+
+# To resolve a conflict the following values are possible:
+#   `null` - abort when collisions occur (default)
+#   `"a wins"` - assume a's items to be more up-to-date
+#   `"b wins"` - assume b's items to be more up-to-date
+#conflict_resolution = null
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/.local/share/khard"
+fileext = ".vcf"
+
+[storage contacts_remote]
+type = "carddav"
+url = "philippthaler.duckdns.org"
+username = "ncp"
+password.fetch = ["command", "pass", "nextcloud"]
+
+# CALDAV
+[pair calendar]
+a = "calendar_local"
+b = "calendar_remote"
+collections = ["from a", "from b"]
+
+# Calendars also have a color property
+metadata = ["displayname", "color"]
+
+[storage calendar_local]
+type = "filesystem"
+path = "~/.local/share/khal/"
+fileext = ".ics"
+
+[storage calendar_remote]
+type = "caldav"
+url = "https://philippthaler.duckdns.org"
+username = "ncp"
+password.fetch = ["command", "pass", "nextcloud"]
+
+#url = ["command", "~/dotfiles/bin/get-dav-url.sh"]
+#username = ["command", "~/dotfiles/bin/get-dav-username.sh"]
