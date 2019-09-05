@@ -46,5 +46,3 @@ url = "https://philippthaler.duckdns.org"
 username = "ncp"
 password.fetch = ["command", "pass", "nextcloud"]
 
-#url = ["command", "~/dotfiles/bin/get-dav-url.sh"]
-#username = ["command", "~/dotfiles/bin/get-dav-username.sh"]
