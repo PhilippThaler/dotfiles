@@ -17,8 +17,8 @@ print_bytes() {
 }
 
 INTERVAL=2
-# INTERFACES="enp13s0"
-INTERFACES="wlp4s0"
+INTERFACES="enp13s0"
+# INTERFACES="wlp4s0"
 
 declare -A bytes
 

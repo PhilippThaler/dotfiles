@@ -55,6 +55,7 @@ bindsym $mod+F6 exec resetaudio
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
 bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Ctrl+Print --release exec i3-scrot -w
 bindsym $mod+Print --release exec --no-startup-id maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+Print --release exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -216,10 +217,10 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xautolock -time 10 -locker blurlock -corners -000
-exec --no-startup-id redshift -l 48.20849:16.37208 -t 4000:2500
+exec redshift-gtk -l 48.20849:16.37208 -t 4000:3000
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id safeeyes
+exec --no-startup-id safeeyes
 exec --no-startup-id rmmod pcspkr
 # Swap Caps_Lock and Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
@@ -315,10 +316,9 @@ mode "$mode_system" {
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
+exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################

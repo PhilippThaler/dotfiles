@@ -1,1 +1,6 @@
 Sep 01 01:06:09 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=phithaler@tsn.at mailsize=331 smtpstatus=250 smtpmsg='250 ok 1567292769 qp 20746' exitcode=EX_OK
+Sep 05 15:40:15 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=lisa@lebes.info mailsize=180631 smtpstatus=250 smtpmsg='250 ok 1567690815 qp 6672' exitcode=EX_OK
+Sep 09 01:22:25 host=smtp.tsn.at tls=on auth=on user=phithaler@tsn.at from=phithaler@tsn.at recipients=s.stolz@tsn.at errormsg='the server sent an empty reply' exitcode=EX_PROTOCOL
+Sep 09 01:24:18 host=smtp.tsn.at tls=on auth=on user=phithaler@tsn.at from=phithaler@tsn.at recipients=philipp@thaler.fyi errormsg='the server sent an empty reply' exitcode=EX_PROTOCOL
+Sep 09 01:52:36 host=smtp.tsn.at tls=on auth=on user=phithaler@tsn.at from=phithaler@tsn.at recipients=philipp@thaler.fyi errormsg='the server sent an empty reply' exitcode=EX_PROTOCOL
+Sep 10 17:48:01 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=info@dkb.de mailsize=331732 smtpstatus=250 smtpmsg='250 ok 1568130481 qp 16419' exitcode=EX_OK
