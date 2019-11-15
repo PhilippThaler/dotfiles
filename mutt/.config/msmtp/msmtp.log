@@ -4,3 +4,8 @@ Sep 09 01:22:25 host=smtp.tsn.at tls=on auth=on user=phithaler@tsn.at from=phith
 Sep 09 01:24:18 host=smtp.tsn.at tls=on auth=on user=phithaler@tsn.at from=phithaler@tsn.at recipients=philipp@thaler.fyi errormsg='the server sent an empty reply' exitcode=EX_PROTOCOL
 Sep 09 01:52:36 host=smtp.tsn.at tls=on auth=on user=phithaler@tsn.at from=phithaler@tsn.at recipients=philipp@thaler.fyi errormsg='the server sent an empty reply' exitcode=EX_PROTOCOL
 Sep 10 17:48:01 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=info@dkb.de mailsize=331732 smtpstatus=250 smtpmsg='250 ok 1568130481 qp 16419' exitcode=EX_OK
+Sep 16 14:41:01 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=phithaler@tsn.at mailsize=340 smtpstatus=250 smtpmsg='250 ok 1568637661 qp 26415' exitcode=EX_OK
+Sep 23 16:15:05 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=tiroler@gemuesekiste.at mailsize=2018 smtpstatus=250 smtpmsg='250 ok 1569248105 qp 10151' exitcode=EX_OK
+Sep 26 20:52:26 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=thalerphilipp1@gmail.com mailsize=323 smtpstatus=250 smtpmsg='250 ok 1569523946 qp 28599' exitcode=EX_OK
+Sep 27 17:08:03 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=andap1994@gmail.com mailsize=1377 smtpstatus=250 smtpmsg='250 ok 1569596883 qp 10024' exitcode=EX_OK
+Okt 21 22:08:46 host=host15.ssl-net.net tls=on auth=on user=philipp@thaler.fyi from=philipp@thaler.fyi recipients=mf@studio7.tirol mailsize=1444 smtpstatus=250 smtpmsg='250 ok 1571688525 qp 24336' exitcode=EX_OK

@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'blindFS/vim-taskwarrior'
+Plug 'tpope/vim-repeat'
 Plug 'alvan/vim-closetag'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'lervag/vimtex'
