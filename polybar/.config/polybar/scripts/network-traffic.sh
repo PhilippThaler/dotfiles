@@ -17,8 +17,7 @@ print_bytes() {
 }
 
 INTERVAL=2
-INTERFACES="enp13s0"
-# INTERFACES="wlp4s0"
+INTERFACES=$( ip -o link show | awk -F': ' '{print $2}' )
 
 declare -A bytes
 
