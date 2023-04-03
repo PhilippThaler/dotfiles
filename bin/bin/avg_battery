@@ -1,0 +1,21 @@
+#!/bin/python
+
+import subprocess
+
+
+def is_int(string):
+    return str.isdigit(string)
+
+
+result = subprocess.run(['acpi'], stdout=subprocess.PIPE)
+string = result.stdout.decode('utf-8')
+power = 0
+for line in string.splitlines():
+    index = line.index('%')
+    if is_int(line[index - 3:index]):
+        percent = int(line[index - 3: index])
+    else:
+        percent = int(line[index - 2:index])
+    power += percent
+power = int(power / len(string.splitlines()))
+print('{percent}%'.format(percent=power))

@@ -1,0 +1,34 @@
+{
+  "suggest.noselect": false,
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.autoTrigger": "always",
+  "suggest.triggerAfterInsertEnter": true,
+
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact"
+  ],
+
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+
+  "prettier.eslintIntegration": true,
+  "prettier.ignorePath": ".gitignore",
+
+  "tsserver.formatOnType": true,
+
+  "typescript.preferences.quoteStyle": "single",
+
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "python.jediEnabled": false
+}

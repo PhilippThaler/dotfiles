@@ -1,0 +1,1 @@
+acpi | awk '{print $4}' | tr -d ,% | awk '{total += $1/2}END{print total }'

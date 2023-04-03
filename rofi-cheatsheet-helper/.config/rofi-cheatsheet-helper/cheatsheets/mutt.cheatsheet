@@ -1,0 +1,4 @@
+^J                          sidebar-next
+^K                          sidebar-prev
+T                           Tag messages matching (.* for all)
+;                           to do operations on tagged msgs (eg D to delete all tagged msgs)
