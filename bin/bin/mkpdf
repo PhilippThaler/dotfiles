@@ -1,0 +1,13 @@
+#!/bin/bash
+
+file=$(readlink -f "$1")
+dir=$(dirname "file")
+base="${file%.*}"
+
+cd "$dir" || exit
+
+case "$file" in
+  *\.md) pandoc "$file" -o "$base".pdf --from markdown --template eisvogel --listings ;;
+  *\.wiki) pandoc "$file" -f markdown -o "$base".pdf ;;
+
+esac

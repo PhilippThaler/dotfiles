@@ -1,0 +1,8 @@
+# vim: filetype=neomuttrc
+source /usr/share/mutt-wizard/mutt-wizard.muttrc
+source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to philipp@thaler.fyi"
+macro index,pager i2 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/postmaster@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to postmaster@thaler.fyi"
+
+set abort_noattach = yes
+set abort_noattach_regex = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attach(|ed|ments?))\\>"

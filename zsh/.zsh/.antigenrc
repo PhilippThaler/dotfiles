@@ -1,0 +1,18 @@
+antigen use oh-my-zsh
+
+antigen bundle zsh-nvm
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zdharma-continuum/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-interactive-cd
+antigen bundle gpg-agent
+antigen bundle nmap
+antigen bundle extract
+antigen bundle git
+antigen bundle git-extras
+antigen bundle archlinux
+antigen bundle colored-man-pages
+
+antigen theme romkatv/powerlevel10k
+antigen apply
