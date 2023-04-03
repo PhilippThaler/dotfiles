@@ -1,3 +1,4 @@
+# vim:fileencoding=utf-8:ft=cfg:foldmethod=marker
 [Default Applications]
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
@@ -14,7 +15,6 @@ image/jpeg=imv.desktop;
 image/png=imv.desktop;
 text/plain=nvim.desktop
 application/pdf=org.pwmt.zathura.desktop
-application/x-bittorrent=deluge.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
