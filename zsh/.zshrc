@@ -24,8 +24,8 @@ alias sctl='sudo systemctl'
 alias cat='bat'
 alias g='nvim +Git +only'
 alias yay='paru'
-# alias ssh='ssh -Y '
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh -Y"
+alias ssh='ssh -Y '
+# [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh -Y"
 
 bindkey '^ ' autosuggest-accept
 bindkey "$terminfo[kcuu1]" history-substring-search-up
