@@ -33,7 +33,7 @@ main() {
   # Return opens the file in $PAGER
   elif [ "${RET}" = 0 ]; then
     if [ -n "$cheatsheet" ]; then
-      kitty -T rofi-cheatsheet-helper -e $EDITOR -R "${ROFI_CHEATSHEET_DIR}/${cheatsheet}"
+      kitty -T rofi-cheatsheet-helper -e $PAGER "${ROFI_CHEATSHEET_DIR}/${cheatsheet}"
     else
       return 1
     fi
