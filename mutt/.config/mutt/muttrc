@@ -4,5 +4,14 @@ source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to philipp@thaler.fyi"
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/postmaster@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to postmaster@thaler.fyi"
 
+set query_command = "khard email --parsable --search-in-source-files '%s'"
 set abort_noattach = yes
 set abort_noattach_regex = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attach(|ed|ments?))\\>"
+
+# Press A to add contact to Khard address book
+# macro index,pager A \
+#     "<pipe-message>khard add-email<return>" \
+#     "add the sender email address to khard"
+
+
+macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>khard add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
