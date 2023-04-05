@@ -27,7 +27,7 @@ floating_minimum_size 75 x 50
 floating_maximum_size 800 x 600
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -210,7 +210,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-power-manager
-exec redshift -l 48.20849:16.37208 -t 4000:3000
+exec redshift-qt -c $HOME/.config/redshift/config
 exec --no-startup-id pasystray
 exec --no-startup-id rmmod pcspkr
 exec --no-startup-id nextcloud

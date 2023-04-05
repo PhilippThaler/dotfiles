@@ -11,7 +11,7 @@ alias zshenv='nvim ~/.zshenv'
 alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias i3config='nvim ~/.config/i3/config'
 alias polyconfig='nvim ~/.config/polybar/config.ini'
-alias kittyconf='nvim ~/.config/kitty/kitty.conf'
+alias termconf='nvim ~/.config/termite/config'
 alias anticonf='nvim ~/.zsh/.antigenrc'
 alias muttconf='nvim ~/.config/mutt/muttrc'
 alias ls='lsd'
@@ -25,11 +25,18 @@ alias cat='bat'
 alias g='nvim +Git +only'
 alias yay='paru'
 alias ssh='ssh -Y '
-# [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh -Y"
 
 bindkey '^ ' autosuggest-accept
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
+function $ { "$@" }
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $ZSH/.p10k.zsh ]] && source $ZSH/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
