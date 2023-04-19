@@ -14,6 +14,7 @@ set spool_file = +INBOX
 set postponed = +Drafts
 set trash = +Trash
 set record = +Sent
+set signature = /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.signature
 
 macro index o "<shell-escape>mw -y philipp@thaler.fyi<enter>" "run mbsync to sync philipp@thaler.fyi"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a philipp@thaler.fyi<enter>"  "publish GPG key to WKS provider"
