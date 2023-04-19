@@ -35,6 +35,7 @@ bindsym $mod+Shift+q kill
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show drun"
 bindsym $mod+Shift+d exec --no-startup-id "rofimoji"
+bindsym $mod+Shift+s exec --no-startup-id "rofi -modi window,windowcd,drun,run -show window"
 bindsym $mod+c exec --no-startup-id "rofi-cheatsheet-helper"
 bindsym $mod+n exec "kill -s USR1 $(pidof deadd-notification-center)"
 
@@ -142,7 +143,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -195,29 +196,23 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
-
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xrandr --output eDP-1-1 --mode 2560x1440
-exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440
 exec --no-startup-id resetaudio
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-power-manager
-exec redshift-qt -c $HOME/.config/redshift/config
 exec --no-startup-id pasystray
 exec --no-startup-id rmmod pcspkr
 exec --no-startup-id nextcloud
 exec --no-startup-id deadd-notification-center
+exec --no-startup-id redshift-qt -c $HOME/.config/redshift/config
 exec_always --no-startup-id picom -D 0
 exec_always --no-startup-id i3-battery-popup -m "Warning: Battery is getting low!"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # Swap Caps_Lock and Escape
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
