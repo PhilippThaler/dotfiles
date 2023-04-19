@@ -7,11 +7,10 @@ macro index,pager i2 '<sync-mailbox><enter-command>source /home/philipp/.config/
 set query_command = "khard email --parsable --search-in-source-files '%s'"
 set abort_noattach = yes
 set abort_noattach_regex = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attach(|ed|ments?))\\>"
+set date_format="%Y-%m-%d %I:%M%p"
 
-# Press A to add contact to Khard address book
-# macro index,pager A \
-#     "<pipe-message>khard add-email<return>" \
-#     "add the sender email address to khard"
+bind attach <return> view-mailcap
+set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
+alternative_order text/plain text/enriched text/html
 
-
-macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>khard add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
+macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>khard add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>"
