@@ -11,6 +11,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
+export GOPATH=$HOME/go
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=white,bold'
@@ -20,6 +21,7 @@ export POWERLEVEL9K_MODE='nerdfont-complete'
 # PATH
 path+=~/.local/bin
 path+=~/bin
+path+=$GOPATH/bin
 export PATH
 
 # export NVM_DIR="$HOME/.nvm"
