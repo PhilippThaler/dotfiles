@@ -8,7 +8,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window 1pixel
+new_window none
 new_float normal
 
 # Hide borders
@@ -27,7 +27,7 @@ floating_minimum_size 75 x 50
 floating_maximum_size 800 x 600
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -48,7 +48,6 @@ bindsym XF86AudioNext exec sconsify -command next
 bindsym $mod+Ctrl+F3 exec pcmanfm
 bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F4 exec "$HOME/Android/Sdk/emulator/emulator @Pixel_2_API_29"
 bindsym $mod+F6 exec resetaudio
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Ctrl+Print --release exec i3-scrot -w
@@ -79,8 +78,6 @@ for_window [title="rofi-cheatsheet-helper"] floating enable border none
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
@@ -198,7 +195,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id resetaudio
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton.conf
 exec --no-startup-id nm-applet
@@ -247,7 +243,7 @@ set_from_resource $term_color15    color15
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
 
   client.background       #2B2C2B
 
@@ -308,9 +304,10 @@ mode "$mode_system" {
 ################################################################################################
 
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio
+# exec --no-startup-id pulseaudio
+# exec_always --no-startup-id resetaudio
 exec_always --no-startup-id pgrep pa-applet || pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
+# bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
