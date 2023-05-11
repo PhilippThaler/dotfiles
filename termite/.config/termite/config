@@ -11,7 +11,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
-font = Inconsolata Nerd Font Mono 17
+font = Inconsolata Nerd Font Mono 15
 geometry = 480x280
 icon_name = terminal
 modify_other_keys = false
@@ -26,12 +26,11 @@ highlight = #30343e
 
 # one dark
 [colors]
-
 # special
 foreground      = #abb2bf
 foreground_bold = #abb2bf
 cursor          =
-background      = #282c34
+background      = rgba(40, 44, 52, 0.85)
 
 # black
 color0  = #282c34
