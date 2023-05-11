@@ -1,0 +1,21 @@
+# vim: filetype=neomuttrc
+# muttrc file for account philipp@thaler.fyi
+set real_name = "Philipp Thaler"
+set from = "philipp@thaler.fyi"
+set sendmail = "msmtp -a philipp"
+alias me Philipp Thaler <philipp@thaler.fyi>
+set folder = "/home/philipp/.local/share/mail/philipp"
+set header_cache = "/home/philipp/.cache/mutt-wizard/philipp_thaler.fyi/headers"
+set message_cachedir = "/home/philipp/.cache/mutt-wizard/philipp_thaler.fyi/bodies"
+set mbox_type = Maildir
+set hostname = "thaler.fyi"
+source /usr/share/mutt-wizard/switch.muttrc
+set spool_file = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent"
+
+set signature = "/home/philipp/.config/mutt/accounts/philipp.signature"
+
+macro index o "<shell-escape>mailsync philipp@thaler.fyi<enter>" "sync philipp@thaler.fyi"
+mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Trash" "=Junk"
