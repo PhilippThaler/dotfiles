@@ -10,7 +10,7 @@ tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile /home/philipp/.config/msmtp/msmtp.log
 tls_starttls off
 
-account postmaster@thaler.fyi
+account postmaster
 host host15.ssl-net.net
 port 465
 from postmaster@thaler.fyi

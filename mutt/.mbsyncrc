@@ -25,7 +25,7 @@ ExpireUnread no
 # End profile
 
 
-IMAPStore postmaster@thaler.fyi-remote
+IMAPStore postmaster-remote
 Host host15.ssl-net.net
 Port 993
 User postmaster@thaler.fyi
@@ -34,65 +34,15 @@ AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-MaildirStore postmaster@thaler.fyi-local
+MaildirStore postmaster-local
 Flatten .
 Path /home/philipp/.local/share/mail/postmaster/
 Inbox /home/philipp/.local/share/mail/postmaster/INBOX
 
 Channel postmaster@thaler.fyi
 Expunge Both
-Far :postmaster@thaler.fyi-remote:
-Near :postmaster@thaler.fyi-local:
-Patterns * !"[Gmail]/All Mail"
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no
-# End profile
-
-IMAPStore philipp@thaler.fyi-remote
-Host host15.ssl-net.net
-Port 993
-User philipp@thaler.fyi
-PassCmd "pass philipp@thaler.fyi"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore philipp@thaler.fyi-local
-Subfolders Verbatim
-Path /home/philipp/.local/share/mail/philipp@thaler.fyi/
-Inbox /home/philipp/.local/share/mail/philipp@thaler.fyi/INBOX
-
-Channel philipp@thaler.fyi
-Expunge Both
-Far :philipp@thaler.fyi-remote:
-Near :philipp@thaler.fyi-local:
-Patterns * !"[Gmail]/All Mail"
-Create Both
-SyncState *
-MaxMessages 0
-ExpireUnread no
-# End profile
-
-IMAPStore postmaster@thaler.fyi-remote
-Host host15.ssl-net.net
-Port 993
-User postmaster@thaler.fyi
-PassCmd "pass postmaster@thaler.fyi"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore postmaster@thaler.fyi-local
-Subfolders Verbatim
-Path /home/philipp/.local/share/mail/postmaster@thaler.fyi/
-Inbox /home/philipp/.local/share/mail/postmaster@thaler.fyi/INBOX
-
-Channel postmaster@thaler.fyi
-Expunge Both
-Far :postmaster@thaler.fyi-remote:
-Near :postmaster@thaler.fyi-local:
+Far :postmaster-remote:
+Near :postmaster-local:
 Patterns * !"[Gmail]/All Mail"
 Create Both
 SyncState *
