@@ -21,3 +21,4 @@ coc/.config/coc/extensions/db.json
 .mailsynclastrun
 /zsh/.zsh/.antigenrc.zwc
 /bin/bin/scrolly
+/zsh/.zsh/cache/
