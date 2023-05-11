@@ -24,8 +24,7 @@ font xft:URWGothic-Book 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 floating_minimum_size 75 x 50
-floating_maximum_size 800 x 600
-
+floating_maximum_size 1200 x 600
 # start a terminal
 bindsym $mod+Return exec alacritty
 
@@ -61,9 +60,8 @@ focus_follows_mouse no
 # change focus
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+assign [class="Spotify"] $ws5
+assign [title="NeoMutt"] $ws4
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -102,9 +100,6 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -147,7 +142,7 @@ bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus scratchpad show, resize set 1000 600
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -206,6 +201,7 @@ exec --no-startup-id nextcloud
 exec --no-startup-id deadd-notification-center
 exec --no-startup-id redshift-qt -c $HOME/.config/redshift/config
 exec_always --no-startup-id picom -D 0
+exec_always --no-startup-id autotiling
 exec_always --no-startup-id i3-battery-popup -m "Warning: Battery is getting low!"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
