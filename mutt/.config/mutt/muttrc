@@ -1,8 +1,8 @@
 # vim: filetype=neomuttrc
 source /usr/share/mutt-wizard/mutt-wizard.muttrc
-source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to philipp@thaler.fyi"
-macro index,pager i2 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/postmaster@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to postmaster@thaler.fyi"
+source /home/philipp/.config/mutt/accounts/philipp.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/philipp.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to philipp@thaler.fyi"
+macro index,pager i2 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/postmaster.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to postmaster@thaler.fyi"
 
 set query_command = "khard email --parsable --search-in-source-files '%s'"
 set abort_noattach = yes
