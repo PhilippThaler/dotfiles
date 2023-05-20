@@ -8,7 +8,7 @@ alias tor='/opt/tor-browser/tor-browser/start-tor-browser.desktop'
 alias vi='nvim'
 alias zshconfig='nvim ~/.zshrc'
 alias zshenv='nvim ~/.zshenv'
-alias nvimconfig='nvim ~/.config/nvim/init.vim'
+alias nvimconfig='nvim ~/.config/nvim/init.lua'
 alias i3config='nvim ~/.config/i3/config'
 alias polyconfig='nvim ~/.config/polybar/config.ini'
 alias termconf='nvim ~/.config/termite/config'
@@ -34,9 +34,3 @@ function $ { "$@" }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $ZSH/.p10k.zsh ]] && source $ZSH/.p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
