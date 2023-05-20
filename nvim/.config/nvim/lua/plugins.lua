@@ -125,16 +125,18 @@ return {
   {
     "tpope/vim-fugitive"
   },
+  -- nvim-surround {{{
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
   },
+  --}}}
 
   -- Theme: Gruvbox Material {{{
   {
@@ -146,6 +148,40 @@ return {
   },
   -- }}}
 
+  -- code_runner.nvim {{{
+  {
+    "CRAG666/code_runner.nvim",
+    config = function ()
+      require "extensions.code_runner"
+    end
+  },
+  --}}}
+  -- nvim-dap {{{
+  {
+    "mfussenegger/nvim-dap"
+  },
+  {
+    "leoluz/nvim-dap-go",
+    config = function ()
+      require "extensions.dap-go"
+    end
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap"
+    },
+    config = function ()
+      require "extensions.dap"
+    end
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function ()
+      require("dapui").setup()
+    end
+  }
+  --}}}
 }
 
 -- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0
