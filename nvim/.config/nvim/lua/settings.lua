@@ -77,4 +77,13 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 -- }}}
 
+-- Hightlight Yank {{{
+vim.cmd[[
+  augroup highlight_yank
+  autocmd!
+  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=500})
+  augroup END
+]]
+--}}}
+
 -- vim: tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=1
