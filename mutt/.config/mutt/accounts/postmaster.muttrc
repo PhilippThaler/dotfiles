@@ -15,5 +15,5 @@ set postponed = "+Drafts"
 set trash = "+Trash"
 set record = "+Sent"
 
-macro index o "<shell-escape>mailsync postmaster<enter>" "sync philipp@thaler.fyi"
+macro index o "<shell-escape>mailsync postmaster@thaler.fyi<enter>" "sync postmaster@thaler.fyi"
 mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Trash" "=Junk"
