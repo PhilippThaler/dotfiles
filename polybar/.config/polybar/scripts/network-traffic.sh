@@ -18,6 +18,7 @@ print_bytes() {
 
 INTERVAL=2
 INTERFACES=$( ip -o link show | awk -F': ' '{print $2}' )
+INTERFACES=$(echo $INTERFACES | head -n -1)
 
 declare -A bytes
 
