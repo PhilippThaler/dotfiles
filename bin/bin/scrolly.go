@@ -13,14 +13,11 @@ const SleepTime = 5000
 const ErrorNoPlayersFound = ""
 
 func main() {
-  for true {
-    songInfo := getSongInfo()
-    if strings.TrimSpace(songInfo) == "-" {
-      fmt.Println(ErrorNoPlayersFound)
-    } else {
-      scroll(songInfo, MaxLength, SleepTime)
-    }
-    time.Sleep(2 * time.Second)
+  songInfo := getSongInfo()
+  if strings.TrimSpace(songInfo) == "-" {
+    fmt.Println(ErrorNoPlayersFound)
+  } else {
+    scroll(songInfo, MaxLength, SleepTime)
   }
 }
 
