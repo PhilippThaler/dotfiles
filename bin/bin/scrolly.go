@@ -9,16 +9,19 @@ import (
 )
 
 const MaxLength = 25
-const SleepTime = 500
-const ErrorNoPlayersFound = "No players found"
+const SleepTime = 5000
+const ErrorNoPlayersFound = ""
 
 func main() {
-	songInfo := getSongInfo()
-	if strings.TrimSpace(songInfo) == "-" {
-		fmt.Println(ErrorNoPlayersFound)
-	} else {
-		scroll(songInfo, MaxLength, SleepTime)
-	}
+  for true {
+    songInfo := getSongInfo()
+    if strings.TrimSpace(songInfo) == "-" {
+      fmt.Println(ErrorNoPlayersFound)
+    } else {
+      scroll(songInfo, MaxLength, SleepTime)
+    }
+    time.Sleep(2 * time.Second)
+  }
 }
 
 func scroll(text string, length int, sleepTime int) {
