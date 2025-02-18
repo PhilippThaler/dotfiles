@@ -161,6 +161,9 @@ return {
     "mfussenegger/nvim-dap"
   },
   {
+    "nvim-neotest/nvim-nio"
+  },
+  {
     "leoluz/nvim-dap-go",
     config = function ()
       require "extensions.dap-go"
