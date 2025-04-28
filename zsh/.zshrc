@@ -1,14 +1,12 @@
 source $ZSH/antigen.zsh
 antigen init $ZSH/.antigenrc
 
-[ -f $ZSH/.fzf.zsh ] && source $ZSH/.fzf.zsh
-
 alias sudo='sudo '
 alias tor='/opt/tor-browser/tor-browser/start-tor-browser.desktop'
 alias vi='nvim'
 alias zshconfig='nvim ~/.zshrc'
 alias zshenv='nvim ~/.zshenv'
-alias nvimconfig='nvim ~/.config/nvim/init.lua'
+alias nvimconfig='cd ~/.config/nvim && nvim init.lua'
 alias i3config='nvim ~/.config/i3/config'
 alias polyconfig='nvim ~/.config/polybar/config.ini'
 alias termconf='nvim ~/.config/termite/config'
@@ -22,7 +20,7 @@ alias mutt='neomutt'
 alias ':q'='exit'
 alias sctl='sudo systemctl'
 alias cat='bat'
-alias g='nvim +Git +only'
+alias g='vim +Git +only'
 alias yay='paru'
 alias ssh='ssh -Y '
 
