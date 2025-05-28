@@ -5,7 +5,7 @@ Port 993
 User philipp@thaler.fyi
 PassCmd "pass philipp"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore philipp-local
@@ -31,7 +31,7 @@ Port 993
 User postmaster@thaler.fyi
 PassCmd "pass postmaster"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 MaildirStore postmaster-local
