@@ -23,6 +23,7 @@ alias cat='bat'
 alias g='vim +Git +only'
 alias yay='paru'
 alias ssh='ssh -Y '
+# alias ssh='kitty +kitten ssh'
 
 bindkey '^ ' autosuggest-accept
 bindkey "$terminfo[kcuu1]" history-substring-search-up
