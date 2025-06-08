@@ -23,3 +23,6 @@ macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode
 macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
