@@ -20,10 +20,12 @@ alias mutt='neomutt'
 alias ':q'='exit'
 alias sctl='sudo systemctl'
 alias cat='bat'
-alias g='vim +Git +only'
+alias g='nvim +Neogit +only'
 alias yay='paru'
 alias ssh='ssh -Y '
 # alias ssh='kitty +kitten ssh'
+alias cd='z'
+alias cdi='zi'
 
 bindkey '^ ' autosuggest-accept
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -33,3 +35,4 @@ function $ { "$@" }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $ZSH/.p10k.zsh ]] && source $ZSH/.p10k.zsh
+eval "$(zoxide init zsh)"
