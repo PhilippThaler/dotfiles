@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=NeoMutt
+GenericName=Mail Client
+Type=Application
+Icon=mutt
+Exec=kitty -T NeoMutt -e neomutt %u
+StartupNotify=false
+Categories=Email
+MimeType=x-scheme-handler/mailto;
