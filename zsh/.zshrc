@@ -1,3 +1,16 @@
+# Speed up zsh
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
+
+# Cache completions aggressively
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi
+
 source $ZSH/antigen.zsh
 antigen init $ZSH/.antigenrc
 
@@ -21,11 +34,12 @@ alias ':q'='exit'
 alias sctl='sudo systemctl'
 alias cat='bat'
 alias g='nvim +Neogit +only'
-alias yay='paru'
 alias ssh='ssh -Y '
 # alias ssh='kitty +kitten ssh'
 alias cd='z'
 alias cdi='zi'
+alias reboot='systemctl reboot'
+alias yay='paru'
 
 bindkey '^ ' autosuggest-accept
 bindkey "$terminfo[kcuu1]" history-substring-search-up
