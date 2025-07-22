@@ -8,7 +8,7 @@ set query_command = "echo '' && notmuch address from:/%s/"
 # set query_command = "khard email --parsable --search-in-source-files '%s'"
 set abort_noattach = yes
 set abort_noattach_regex = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attach(|ed|ments?))\\>"
-set date_format="%Y-%m-%d %I:%M%p"
+set date_format="%Y-%m-%d %H:%M"
 
 bind attach <return> view-mailcap
 set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
