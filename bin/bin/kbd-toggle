@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Define the control device for your keyboard backlight
+KB_BACKLIGHT_CTRL="tpacpi::kbd_backlight"
+
+# Define the brightness levels
+OFF=0
+LOW=50
+HIGH=100
+
+# Get the current brightness level
+CURRENT_BRIGHTNESS=$(xbacklight -ctrl "$KB_BACKLIGHT_CTRL" -get | cut -d'.' -f1)
+
+# Determine the next state
+NEXT_STATE=""
+case "$CURRENT_BRIGHTNESS" in
+    "$OFF")
+        NEXT_STATE="$LOW"
+        ;;
+    "$LOW")
+        NEXT_STATE="$HIGH"
+        ;;
+    "$HIGH")
+        NEXT_STATE="$OFF"
+        ;;
+    *)
+        # If current brightness is not one of our defined states, default to OFF
+        # This handles cases where the backlight might be at an intermediate level
+        # or initialized to something else.
+        NEXT_STATE="$OFF"
+        ;;
+esac
+
+xbacklight -ctrl "$KB_BACKLIGHT_CTRL" -set "$NEXT_STATE"

@@ -10,12 +10,13 @@ set $mod Mod4
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window none
 new_float normal
+default_border pixel 0
 
 # Hide borders
 hide_edge_borders none
 
 # change borders
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,17 +32,14 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+Mod1+l exec --no-startup-id betterlockscreen -l dim --off 10
+
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -modi window,windowcd,drun,run -show drun"
 bindsym $mod+Shift+d exec --no-startup-id "rofimoji"
 bindsym $mod+Shift+s exec --no-startup-id "rofi -modi window,windowcd,drun,run -show window"
 bindsym $mod+c exec --no-startup-id "rofi-cheatsheet-helper"
 bindsym $mod+n exec "kill -s USR1 $(pidof deadd-notification-center)"
-
-# sconsify
-bindsym XF86AudioPrev exec sconsify -command replay
-bindsym XF86AudioPlay exec sconsify -command play_pause
-bindsym XF86AudioNext exec sconsify -command next
 
 # Start Applications
 bindsym $mod+Ctrl+F3 exec pcmanfm
@@ -54,6 +52,18 @@ bindsym $mod+Print --release exec --no-startup-id maim -i $(xdotool getactivewin
 bindsym $mod+Shift+Print --release exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym $mod+Shift+y exec i3-layout-manager
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/change-volume 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/change-volume 5%- unmute
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+
+# Keyboard brightness controls
+bindsym $mod+F11 exec --no-startup-id ~/bin/kbd-toggle
 
 focus_follows_mouse no
 
@@ -142,8 +152,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show, resize set 1000 600
+# bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+minus scratchpad show, resize set 1000 600
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -191,24 +201,23 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Dropdown Terminal
 exec --no-startup-id kitty --name dropdown &
-bindsym $mod+i [instance="dropdown"] scratchpad show, move position center
-for_window [instance="dropdown"] floating enable, resize set 800 600, move scratchpad
+bindsym $mod+minus [instance="dropdown"] scratchpad show, move position center
+for_window [instance="dropdown"] floating enable, resize set 1000 800, move scratchpad
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton.conf
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 'xrandr --output eDP-1 --brightness .1' 'xrandr --output eDP-1 --brightness 1' --timer 10 'xrandr --output eDP-1 --brightness 1; betterlockscreen --lock dim --off 10' '' --timer 600 'systemctl suspend-then-hibernate' ''
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pasystray
-exec --no-startup-id rmmod pcspkr
 exec --no-startup-id nextcloud
 exec --no-startup-id deadd-notification-center
-exec --no-startup-id redshift-qt -c $HOME/.config/redshift/config
+exec --no-startup-id redshift-gtk -c $HOME/.config/redshift/config
 exec_always --no-startup-id picom -D 0
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id i3-battery-popup -m "Warning: Battery is getting low!"
+exec_always --no-startup-id i3-battery-popup -n -m "Warning: Battery is getting low!"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Swap Caps_Lock and Escape
@@ -216,46 +225,13 @@ exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
-
-
-# Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000
-
-  client.background       #2B2C2B
-
 #############################
 ### settings for i3-gaps: ###
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 30
+gaps outer 10
 
 smart_gaps on
 
@@ -269,11 +245,6 @@ bindsym $mod+Shift+g mode "$mode_gaps"
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
@@ -288,30 +259,18 @@ mode "resize" {
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym l exec --no-startup-id betterlockscreen -l dim --off 10, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-# exec --no-startup-id pulseaudio
-# exec_always --no-startup-id resetaudio
-exec_always --no-startup-id pgrep pa-applet || pa-applet
-# bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
