@@ -7,6 +7,7 @@ export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export TERM='xterm-kitty'
+export BROWSER='/usr/bin/librewolf'
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
