@@ -201,7 +201,8 @@ bindsym $mod+minus exec --no-startup-id $HOME/bin/toggle_scratchpad
 for_window [instance="scratchpad"] floating enable, resize set 1000 800, move scratchpad
 
 # Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 'xrandr --output eDP-1 --brightness .1' 'xrandr --output eDP-1 --brightness 1' --timer 10 'xrandr --output eDP-1 --brightness 1; betterlockscreen --lock dim --off 10' '' --timer 600 'systemctl suspend-then-hibernate' ''
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 exec --no-startup-id nm-applet
