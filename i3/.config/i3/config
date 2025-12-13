@@ -72,7 +72,7 @@ focus_follows_mouse no
 # assign [class="Thunderbird"] $ws1
 assign [class="Spotify"] $ws5
 assign [title="NeoMutt"] $ws4
-assign [class="Signal Beta"] $ws4
+assign [class="Signal"] $ws4
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -198,18 +198,20 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # Dropdown Terminal
 exec --no-startup-id kitty --name scratchpad &
 bindsym $mod+minus exec --no-startup-id $HOME/bin/toggle_scratchpad
-for_window [instance="scratchpad"] floating enable, resize set 1000 800, move scratchpad
+for_window [instance="scratchpad"] floating enable, resize set 1200 1000, move scratchpad
 
 # Autostart applications
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 'xrandr --output eDP-1 --brightness .1' 'xrandr --output eDP-1 --brightness 1' --timer 10 'xrandr --output eDP-1 --brightness 1; betterlockscreen --lock dim --off 10' '' --timer 600 'systemctl suspend-then-hibernate' ''
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 900 'xrandr --output eDP-1 --brightness .1' 'xrandr --output eDP-1 --brightness 1' --timer 10 'xrandr --output eDP-1 --brightness 1; betterlockscreen --lock dim --off 10' '' --timer 600 'systemctl suspend-then-hibernate' ''
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
+exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pasystray
 exec --no-startup-id nextcloud
+exec --no-startup-id $HOME/Applications/OpenCloud_Desktop-v2.0.0-linux-gcc-x86_64_fa14b39844c992161de016b3b2226600.AppImage
 exec --no-startup-id deadd-notification-center
 exec --no-startup-id redshift-gtk -c $HOME/.config/redshift/config
 exec_always --no-startup-id picom -D 0
