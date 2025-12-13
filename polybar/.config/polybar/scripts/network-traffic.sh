@@ -115,9 +115,7 @@ while true; do
     avg_up_speed=$(( up_total_window_bytes / WINDOW_SECONDS ))
 
     # Print the formatted total speeds for Polybar, using specific colors
-    # %{F#61afef} sets the foreground color for the icon (e.g., blueish from Nord theme)
-    # %{F#abb2bf} sets the foreground color for the text (e.g., greyish from Nord theme)
-    echo " %{F#61afef} %{F#abb2bf}$(print_bytes "$avg_down_speed") %{F#61afef}%{F#abb2bf} $(print_bytes "$avg_up_speed")"
+    echo " %{F#209fb5} %{F#b2bfe2}$(print_bytes "$avg_down_speed") %{F#209fb5}%{F#b2bfe2} $(print_bytes "$avg_up_speed")"
 
     # Wait for the next interval before the next calculation
     sleep "$INTERVAL"
