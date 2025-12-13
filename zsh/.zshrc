@@ -21,10 +21,10 @@ alias zshconfig='nvim ~/.zshrc'
 alias zshenv='nvim ~/.zshenv'
 alias nvimconfig='cd ~/.config/nvim && nvim init.lua && cd -'
 alias i3config='nvim ~/.config/i3/config'
-alias polyconfig='nvim ~/.config/polybar/config.ini'
+alias polyconfig='cd ~/.config/polybar && nvim ~/.config/polybar/config.ini && cd -'
 alias termconf='nvim ~/.config/termite/config'
 alias anticonf='nvim ~/.zsh/.antigenrc'
-alias muttconf='nvim ~/.config/mutt/muttrc'
+alias muttconf='cd ~/.config/mutt && nvim ~/.config/mutt/muttrc && cd -'
 alias ls='lsd'
 alias l='lsd -lah'
 alias t='task'
@@ -40,6 +40,10 @@ alias cd='z'
 alias cdi='zi'
 alias reboot='systemctl reboot'
 alias yay='paru'
+
+alias rm="echo -e 'If you want to use rm really, then use \"tp\" or \"rmd\" instead.'; false"
+alias rmd='/usr/bin/rm'
+alias tp='gtrash put' # trash put
 
 bindkey '^ ' autosuggest-accept
 bindkey "$terminfo[kcuu1]" history-substring-search-up
