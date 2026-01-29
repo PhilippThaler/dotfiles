@@ -198,7 +198,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # Dropdown Terminal
 exec --no-startup-id kitty --name scratchpad &
 bindsym $mod+minus exec --no-startup-id $HOME/bin/toggle_scratchpad
-for_window [instance="scratchpad"] floating enable, resize set 1200 1000, move scratchpad
+for_window [instance="scratchpad"] floating enable, resize set 1600 1400, move scratchpad
 
 # Autostart applications
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
