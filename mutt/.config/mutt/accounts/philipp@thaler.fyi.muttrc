@@ -4,7 +4,7 @@ set real_name = "Philipp Thaler"
 set from = "philipp@thaler.fyi"
 set sendmail = "msmtp -a philipp"
 alias me Philipp Thaler <philipp@thaler.fyi>
-set folder = "/home/philipp/.local/share/mail/philipp"
+set folder = "/home/philipp/.local/share/mail/philipp@thaler.fyi"
 set header_cache = "/home/philipp/.cache/mutt-wizard/philipp_thaler.fyi/headers"
 set message_cachedir = "/home/philipp/.cache/mutt-wizard/philipp_thaler.fyi/bodies"
 set mbox_type = Maildir
@@ -15,7 +15,7 @@ set postponed = "+Drafts"
 set trash = "+Trash"
 set record = "+Sent"
 
-set signature = "/home/philipp/.config/mutt/accounts/philipp.signature"
+set signature = "/home/philipp/.config/mutt/accounts/philipp@thaler.fyi.signature"
 
-macro index o "<shell-escape>mailsync philipp@thaler.fyi<enter>" "sync philipp@thaler.fyi"
+macro index o "<shell-escape>mw -y philipp@thaler.fyi<enter>" "sync philipp@thaler.fyi"
 mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Trash" "=Junk"

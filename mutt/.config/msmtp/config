@@ -1,23 +1,24 @@
-account philipp
+account philipp@thaler.fyi
 host host15.ssl-net.net
 port 465
 from philipp@thaler.fyi
 user philipp@thaler.fyi
-passwordeval "pass philipp"
+passwordeval "pass philipp@thaler.fyi"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile /home/philipp/.config/msmtp/msmtp.log
 tls_starttls off
 
-account postmaster
+account postmaster@thaler.fyi
 host host15.ssl-net.net
 port 465
 from postmaster@thaler.fyi
 user postmaster@thaler.fyi
-passwordeval "pass postmaster"
+passwordeval "pass postmaster@thaler.fyi"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
 logfile /home/philipp/.config/msmtp/msmtp.log
 tls_starttls off
+

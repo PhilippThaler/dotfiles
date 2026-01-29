@@ -4,7 +4,7 @@ set real_name = "Philipp Thaler"
 set from = "postmaster@thaler.fyi"
 set sendmail = "msmtp -a postmaster"
 alias me Philipp Thaler <postmaster@thaler.fyi>
-set folder = "/home/philipp/.local/share/mail/postmaster"
+set folder = "/home/philipp/.local/share/mail/postmaster@thaler.fyi"
 set header_cache = "/home/philipp/.cache/mutt-wizard/postmaster/headers"
 set message_cachedir = "/home/philipp/.cache/mutt-wizard/postmaster/bodies"
 set mbox_type = Maildir
