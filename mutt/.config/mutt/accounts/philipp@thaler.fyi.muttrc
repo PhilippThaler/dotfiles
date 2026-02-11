@@ -18,4 +18,4 @@ set record = "+Sent"
 set signature = "/home/philipp/.config/mutt/accounts/philipp@thaler.fyi.signature"
 
 macro index o "<shell-escape>mw -y philipp@thaler.fyi<enter>" "sync philipp@thaler.fyi"
-mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Trash" "=Junk"
+mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Archive.Paperless" "=Trash" "=Junk"

@@ -16,4 +16,4 @@ set trash = "+Trash"
 set record = "+Sent"
 
 macro index o "<shell-escape>mailsync postmaster@thaler.fyi<enter>" "sync postmaster@thaler.fyi"
-mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Trash" "=Junk"
+mailboxes "=INBOX" "=Drafts" "=Sent" "=Archive" "=Archive.Paperless" "=Trash" "=Junk"
