@@ -1,6 +1,6 @@
 #!/bin/sh
 
 yay -S brscan4 simple-scan
-sudo brsaneconfig4 -a name=Scanner model=MFC-L2710DW ip=192.168.1.42
+sudo brsaneconfig4 -a name=Scanner model=MFC-L2710DW ip=10.69.30.50
 
 # Open Documentscanner to use
