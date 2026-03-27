@@ -15,6 +15,17 @@ set postponed = +Drafts
 set trash = +Trash
 set record = +Sent
 
+set crypt_use_gpgme=yes
+set postpone_encrypt = yes
+set pgp_self_encrypt = yes
+set crypt_use_pka = no
+set crypt_autosign = yes
+set crypt_verify_sig = yes
+set crypt_autoencrypt = no
+set crypt_autopgp = yes
+set crypt_opportunistic_encrypt = yes
+set pgp_sign_as='0xC0C6765275994ED06B4AC6333FC86DDE783B6D37'
+
 set signature = /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.signature
 
 macro index o "<shell-escape>mw -y philipp@thaler.fyi<enter>" "run mbsync to sync philipp@thaler.fyi"
