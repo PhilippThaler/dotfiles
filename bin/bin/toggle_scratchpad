@@ -1,16 +1,9 @@
 #!/bin/bash
 
-# Define the instance name of your scratchpad terminal
 WINDOW_INSTANCE="scratchpad"
 
-# Check if the window is currently running/in the scratchpad
-i3-msg -t get_tree | grep -q "\"instance\":\"$WINDOW_INSTANCE\""
-
-if [ $? -eq 0 ]; then
-    # If the window exists, toggle its visibility (scratchpad show)
+if i3-msg -t get_tree | grep -q "\"instance\":\"$WINDOW_INSTANCE\""; then
     i3-msg "[instance=\"$WINDOW_INSTANCE\"] scratchpad show"
 else
-    # If the window does NOT exist, launch a new instance
-    # The 'for_window' rule in your i3 config will handle moving it to the scratchpad
-    i3-msg "exec kitty --name $WINDOW_INSTANCE"
+    i3-msg "exec --no-startup-id ghostty --x11-instance-name=$WINDOW_INSTANCE"
 fi
