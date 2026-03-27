@@ -40,6 +40,7 @@ alias cd='z'
 alias cdi='zi'
 alias reboot='systemctl reboot'
 alias yay='paru'
+alias ansible-playbook='ansible-playbook --diff'
 
 alias rm="echo -e 'If you want to use rm really, then use \"tp\" or \"rmd\" instead.'; false"
 alias rmd='/usr/bin/rm'
@@ -54,3 +55,4 @@ function $ { "$@" }
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $ZSH/.p10k.zsh ]] && source $ZSH/.p10k.zsh
 eval "$(zoxide init zsh)"
+eval $(keychain --eval -Q --quiet ~/.ssh/ansible_key)
