@@ -1,6 +1,5 @@
 antigen use oh-my-zsh
 
-antigen bundle zsh-nvm
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
