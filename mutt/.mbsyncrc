@@ -1,6 +1,6 @@
 
 IMAPStore philipp@thaler.fyi-remote
-Host mail.thaler.fyi
+Host mail.spacemail.com
 Port 993
 User philipp@thaler.fyi
 PassCmd "pass philipp@thaler.fyi"
