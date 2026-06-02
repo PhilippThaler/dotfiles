@@ -1,8 +1,11 @@
 # vim: filetype=neomuttrc
 source /usr/share/mutt-wizard/mutt-wizard.muttrc
 
+set mailcap_path = "~/.config/mutt/mailcap"
+
 set query_command = "echo '' && notmuch address from:/%s/"
 # set query_command = "khard email --parsable --search-in-source-files '%s'"
+set sig_on_top = yes
 set abort_noattach = yes
 set abort_noattach_regex = "\\<(anhängen|angehängt|anhang|anhänge|hängt an|attach(|ed|ments?))\\>"
 set date_format="%Y-%m-%d %H:%M"
@@ -21,6 +24,8 @@ macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode
 
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach B "<pipe-entry>~/.config/mutt/mutt_bgrun.sh<enter>" "open attachment in browser"
+macro attach i "<pipe-entry>~/.config/mutt/khal-import.sh<enter>" "import event to khal"
 
 macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
@@ -84,3 +89,7 @@ color sidebar_flagged   color1 default    # Mailboxes with flagged mails are Red
 color sidebar_new       color10 default   # Mailboxes with new mail are Green
 source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/philipp/.config/mutt/accounts/philipp@thaler.fyi.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to philipp@thaler.fyi"
+auto_view text/calendar application/ics
+alternative_order text/calendar text/plain text/enriched text/html
+
+set show_multipart_alternative = inline

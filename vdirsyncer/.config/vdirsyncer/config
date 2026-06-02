@@ -16,9 +16,9 @@ fileext = ".vcf"
 
 [storage contacts_remote]
 type = "carddav"
-url = "https://nextcloud.thaler.fyi"
+url = "https://nextcloud.thaler.fyi/remote.php/dav/addressbooks/philipp/"
 username = "philipp"
-password.fetch = ["command", "pass", "nextcloud"]
+password.fetch = ["command", "pass", "nextcloud/thaler.fyi"]
 
 
 # To resolve a conflict the following values are possible:
@@ -42,7 +42,7 @@ fileext = ".ics"
 
 [storage calendar_remote]
 type = "caldav"
-url = "https://nextcloud.thaler.fyi"
+url = "https://nextcloud.thaler.fyi/remote.php/dav/calendars/philipp/"
 username = "philipp"
-password.fetch = ["command", "pass", "nextcloud"]
+password.fetch = ["command", "pass", "nextcloud/thaler.fyi"]
 
