@@ -71,7 +71,7 @@ focus_follows_mouse no
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
 assign [class="Spotify"] $ws5
-assign [title="NeoMutt"] $ws4
+assign [instance="neomutt"] $ws4
 assign [class="Signal"] $ws4
 
 # Open specific applications in floating mode

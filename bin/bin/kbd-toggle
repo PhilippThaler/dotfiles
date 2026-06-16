@@ -1,34 +1,18 @@
 #!/bin/bash
+# kbd-toggle — Wayland edition
+# Toggles ThinkPad keyboard backlight: off → low → high → off
+# Uses brightnessctl (works on Wayland)
 
-# Define the control device for your keyboard backlight
-KB_BACKLIGHT_CTRL="tpacpi::kbd_backlight"
+DEVICE="tpacpi::kbd_backlight"
+MAX=2  # ThinkPad max brightness (0=off, 1=low, 2=high)
 
-# Define the brightness levels
-OFF=0
-LOW=50
-HIGH=100
+CURRENT=$(brightnessctl -d "$DEVICE" get 2>/dev/null || echo 0)
 
-# Get the current brightness level
-CURRENT_BRIGHTNESS=$(xbacklight -ctrl "$KB_BACKLIGHT_CTRL" -get | cut -d'.' -f1)
-
-# Determine the next state
-NEXT_STATE=""
-case "$CURRENT_BRIGHTNESS" in
-    "$OFF")
-        NEXT_STATE="$LOW"
-        ;;
-    "$LOW")
-        NEXT_STATE="$HIGH"
-        ;;
-    "$HIGH")
-        NEXT_STATE="$OFF"
-        ;;
-    *)
-        # If current brightness is not one of our defined states, default to OFF
-        # This handles cases where the backlight might be at an intermediate level
-        # or initialized to something else.
-        NEXT_STATE="$OFF"
-        ;;
+case "$CURRENT" in
+    0) NEXT=1 ;;
+    1) NEXT=2 ;;
+    2) NEXT=0 ;;
+    *) NEXT=0 ;;
 esac
 
-xbacklight -ctrl "$KB_BACKLIGHT_CTRL" -set "$NEXT_STATE"
+brightnessctl -d "$DEVICE" set "$NEXT"

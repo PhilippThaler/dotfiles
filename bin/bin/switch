@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while true; do
+fusee-nano ~/bin/hekate.bin
+done;

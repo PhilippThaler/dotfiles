@@ -3,7 +3,7 @@ Name=NeoMutt
 GenericName=Mail Client
 Type=Application
 Icon=mutt
-Exec=ghostty -e neomutt %u
+Exec=ghostty --class=neomutt -e neomutt %u
 StartupNotify=false
 Categories=Email
 MimeType=x-scheme-handler/mailto;

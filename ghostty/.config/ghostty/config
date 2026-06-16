@@ -1,0 +1,21 @@
+theme = Catppuccin Frappe
+
+font-family = Inconsolata LGC Nerd Font Mono
+font-family-bold = Inconsolata LGC Nerd Font Mono Bold
+font-family-italic = Inconsolata LGC Nerd Font Mono Italic
+font-family-bold-italic = Inconsolata LGC Nerd Font Mono Bold Italic
+font-size = 13.5
+
+background-opacity = 0.95
+
+window-decoration = none
+
+copy-on-select = clipboard
+clipboard-paste-protection = false
+
+mouse-scroll-multiplier = 2
+
+shell-integration-features = ssh-env, sudo
+
+keybind = all:ctrl+enter=ignore
+confirm-close-surface = false

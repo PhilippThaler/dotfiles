@@ -1,0 +1,4 @@
+#!/bin/bash
+export XCURSOR_SIZE=36
+export XCURSOR_THEME=capitaine-cursors
+exec sway
