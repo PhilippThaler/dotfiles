@@ -1,0 +1,3 @@
+#!/bin/bash
+sleep 0.15
+swaymsg "[app_id=signal]" fullscreen enable 2>/dev/null

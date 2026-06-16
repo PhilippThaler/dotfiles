@@ -1,0 +1,3 @@
+#!/bin/bash
+sleep 0.2
+swaymsg "workspace 4 layout stacking" 2>/dev/null

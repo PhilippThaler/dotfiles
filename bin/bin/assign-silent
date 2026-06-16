@@ -1,0 +1,37 @@
+#!/bin/bash
+# Silent workspace assignment - moves window without switching focus
+# Usage: assign-silent "app_id=signal" 4
+
+CRITERIA="$1"
+TARGET_WS="$2"
+
+# Get current workspace before the move
+OLD_WS=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true).name')
+
+# Subscribe to window events briefly, then move when we see our window
+swaymsg -t subscribe -m '[ "window" ]' | while read -r event; do
+    APP_ID=$(echo "$event" | jq -r '.container.app_id // ""')
+    TITLE=$(echo "$event" | jq -r '.container.name // ""')
+    
+    # Check if this matches our criteria
+    MATCH=0
+    case "$CRITERIA" in
+        app_id=*)
+            [ "$APP_ID" = "${CRITERIA#app_id=}" ] && MATCH=1
+            ;;
+        title=*)
+            [[ "$TITLE" =~ ${CRITERIA#title=} ]] && MATCH=1
+            ;;
+    esac
+    
+    if [ "$MATCH" = "1" ]; then
+        swaymsg "[${CRITERIA}]" move container to workspace "$TARGET_WS"
+        sleep 0.1
+        # Only switch back if we got moved
+        CURRENT=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true).name')
+        if [ "$CURRENT" = "$TARGET_WS" ]; then
+            swaymsg workspace "$OLD_WS"
+        fi
+        # Don't exit - keep running for next window
+    fi
+done

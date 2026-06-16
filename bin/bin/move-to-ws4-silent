@@ -1,0 +1,11 @@
+#!/bin/bash
+# Move a window matching criteria to workspace 4 silently
+# Usage: move-to-ws4-silent "app_id=signal"
+#        move-to-ws4-silent "title=.*neomutt.*"
+
+CRITERIA="$1"
+
+ORIG=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true).name')
+swaymsg "[${CRITERIA}]" move container to workspace 4
+sleep 0.1
+swaymsg workspace "$ORIG"

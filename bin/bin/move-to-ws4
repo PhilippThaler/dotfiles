@@ -1,0 +1,6 @@
+#!/bin/bash
+# Move a newly opened window to workspace 4 without switching focus
+# The for_window rule guarantees this window has focus when the rule fires
+
+# Move focused window to ws4
+swaymsg move container to workspace 4

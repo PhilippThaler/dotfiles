@@ -201,10 +201,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # ============================================================
 assign [class="Spotify"] $ws5
 # --- Signal & Neomutt on workspace 4 ---
-assign [app_id="signal"] $ws4
-for_window [app_id="signal"] move container to workspace $ws4
-for_window [title=".*neomutt.*"] move container to workspace $ws4
-for_window [title=".*neomutt.*"] exec --no-startup-id $HOME/bin/neomutt-fullscreen
+no_focus [app_id="signal"]
+no_focus [title=".*neomutt.*"]
+for_window [app_id="signal"] exec --no-startup-id $HOME/bin/signal-ws4
+for_window [title=".*neomutt.*"] exec --no-startup-id $HOME/bin/neomutt-ws4
 
 # ============================================================
 #  FOR_WINDOW RULES
@@ -332,6 +332,9 @@ exec --no-startup-id gammastep -m wayland -c ~/.config/gammastep/config.ini
 # KDE Connect
 exec --no-startup-id /usr/bin/kdeconnectd
 exec --no-startup-id sleep 2 && kdeconnect-indicator
+exec --no-startup-id signal-desktop
+exec --no-startup-id ghostty -e neomutt
+exec --no-startup-id $HOME/bin/autostart-apps
 
 # Auto-tiling (uses i3ipc, works with Sway)
 exec_always --no-startup-id sh -c 'pkill -x autotiling; autotiling -l 2'

@@ -1,0 +1,14 @@
+#!/bin/bash
+# Wait for Signal and Neomutt to start, then go to workspace 1
+
+# Wait for them to appear
+for i in $(seq 1 30); do
+    if pgrep -x signal-desktop >/dev/null 2>&1 && pgrep -x neomutt >/dev/null 2>&1; then
+        break
+    fi
+    sleep 1
+done
+
+# Give them time to be moved to ws4
+sleep 1
+swaymsg workspace 1
