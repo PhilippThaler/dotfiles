@@ -23,6 +23,7 @@
         "pulseaudio",
         "idle_inhibitor",
         "custom/bluetooth",
+        "custom/gammastep",
         "network",
         "clock",
         "tray"
@@ -128,6 +129,14 @@
         "on-click": "playerctl play-pause",
         "on-click-right": "playerctl previous",
         "on-click-middle": "playerctl next",
+        "format": "{}"
+    },
+
+    "custom/gammastep": {
+        "exec": "~/.config/waybar/scripts/gammastep.sh",
+        "interval": 30,
+        "return-type": "json",
+        "on-click": "if pgrep -x gammastep >/dev/null; then pkill -x gammastep; else gammastep -m wayland -c ~/.config/gammastep/config.ini & fi",
         "format": "{}"
     }
 }

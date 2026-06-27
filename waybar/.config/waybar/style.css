@@ -107,6 +107,7 @@ window#waybar {
 #pulseaudio { color: #81c8be; }
 #idle_inhibitor { color: #babbf1; }
 #custom-bluetooth { color: #85c1dc; }
+#custom-gammastep { color: #ef9f76; }
 
 /* ── Extra spacing between cramped right-side modules ── */
 #pulseaudio { margin-right: 4px; }
