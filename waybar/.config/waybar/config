@@ -19,12 +19,11 @@
         "sway/window"
     ],
     "modules-right": [
+        "battery",
         "pulseaudio",
         "idle_inhibitor",
         "custom/bluetooth",
         "network",
-        "battery",
-        "custom/cliphist",
         "clock",
         "tray"
     ],
@@ -61,6 +60,17 @@
         "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
     },
 
+    "battery": {
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{time} remaining"
+    },
+
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": " mute",
@@ -86,8 +96,8 @@
         "exec": "~/.config/waybar/scripts/bluetooth.sh",
         "interval": 5,
         "return-type": "json",
-        "on-click": "bluetoothctl power on 2>/dev/null; bluetoothctl scan on 2>/dev/null &",
-        "on-click-right": "bluetoothctl power off 2>/dev/null",
+        "on-click": "bluetoothctl show | grep -q 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
+        "on-click-right": "~/.config/waybar/scripts/bluetooth-menu.sh",
         "format": "{}"
     },
 
@@ -99,26 +109,6 @@
         "format-disconnected": "",
         "tooltip-format": "{ipaddr} | {bandwidthDownBits} ↓ {bandwidthUpBits} ↑",
         "max-length": 20
-    },
-
-    "battery": {
-        "interval": 5,
-        "states": {
-            "warning": 20,
-            "critical": 10
-        },
-        "format": "{icon}  {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip-format": "{time} remaining"
-    },
-
-    "custom/cliphist": {
-        "exec": "~/.config/waybar/scripts/clipboard.sh",
-        "interval": 5,
-        "return-type": "json",
-        "on-click": "cliphist list | head -5 | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy",
-        "on-click-right": "cliphist wipe",
-        "format": "{}"
     },
 
     "clock": {

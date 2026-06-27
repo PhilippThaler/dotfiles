@@ -1,6 +1,9 @@
 # Sway config file (migrated from i3)
 # Default config location: ~/.config/sway/config
 
+# --- Environment (needed for portals, Firefox on Wayland, etc.) ---
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -91,14 +94,17 @@ bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pkexec pcmanfm
 bindsym $mod+F6 exec resetaudio
 
-# --- Screenshots (grim + slurp + wl-copy) ---
+# --- Screenshots & Recording ---
+bindsym $mod+Shift+v exec --no-startup-id $HOME/bin/record-screen
+bindsym $mod+Ctrl+v exec --no-startup-id $HOME/bin/record-screen region
+
 bindsym Print exec --no-startup-id $HOME/bin/screenshot-full
 bindsym $mod+Ctrl+Print exec --no-startup-id $HOME/bin/screenshot-window
 bindsym $mod+Print exec --no-startup-id $HOME/bin/screenshot-window-clip
 bindsym $mod+Shift+Print exec --no-startup-id $HOME/bin/screenshot-region
 
 # --- Layout manager ---
-bindsym $mod+Shift+y exec i3-layout-manager
+# i3-layout-manager not available on Wayland
 # Display settings GUI
 bindsym $mod+Shift+p exec wdisplays
 
@@ -128,6 +134,8 @@ bindsym $mod+Shift+l exec --no-startup-id $HOME/bin/move-window right
 
 # --- Workspace back-and-forth ---
 bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # --- Split orientation ---
@@ -203,39 +211,25 @@ assign [class="Spotify"] $ws5
 # --- Signal & Neomutt on workspace 4 ---
 no_focus [app_id="signal"]
 no_focus [title=".*neomutt.*"]
-for_window [app_id="signal"] exec --no-startup-id $HOME/bin/signal-ws4
+for_window [app_id="signal" title="Signal"] exec --no-startup-id $HOME/bin/signal-ws4
 for_window [title=".*neomutt.*"] exec --no-startup-id $HOME/bin/neomutt-ws4
+for_window [title=".*neomutt.*"] exec --no-startup-id "sleep 0.3; swaymsg [workspace=4] layout stacking"
 
 # ============================================================
 #  FOR_WINDOW RULES
 # ============================================================
 for_window [title="alsamixer"] floating enable, border pixel 1
 for_window [title="Battery Warnung"] sticky enable
-for_window [class="calamares"] floating enable, border normal
 for_window [class="mpv"] floating enable, border pixel 0
-for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable, border pixel 1
 for_window [class="GParted"] floating enable, border normal
 for_window [title="rofi-cheatsheet-helper"] floating enable, border none
-for_window [title="i3_help"] floating enable, sticky enable, border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable, sticky enable, border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable, sticky enable, border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable, sticky enable, border normal
-for_window [class="Qtconfig-qt4"] floating enable, sticky enable, border normal
 for_window [class="Simple-scan"] floating enable, border normal
 for_window [class="(?i)System-config-printer.py"] floating enable, border normal
-for_window [class="Skype"] floating enable, border normal
-for_window [class="Timeset-gui"] floating enable, border normal
 for_window [class="(?i)virtualbox"] floating enable, border normal
-for_window [class="Xfburn"] floating enable
 for_window [urgent=latest] focus
 
 # ============================================================
@@ -248,9 +242,8 @@ for_window [title="scratchpad_dropdown"] floating enable, resize set 1200 1000, 
 #  MODES
 # ============================================================
 
-# --- Reload / restart ---
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+# --- Reload ---
+bindsym $mod+Shift+r reload
 
 # --- Resize mode ---
 bindsym $mod+r mode "resize"
@@ -311,6 +304,9 @@ mode "$mode_gaps_outer" {
 # PolicyKit agent
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
+# XDG Desktop Portal (required for file pickers in Firefox/Librewolf on Wayland)
+exec --no-startup-id /usr/lib/xdg-desktop-portal-gtk
+
 # Wallpaper
 exec --no-startup-id swaybg -i ~/Pictures/wallpaper.jpg -m fill
 
@@ -319,12 +315,12 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
 exec --no-startup-id opencloud
 
-# Notification center (swaync)
+# Notification center
+# swaync is a persistent daemon; start it once if not already running
 exec --no-startup-id swaync
 
-# Clipboard manager
-exec --no-startup-id wl-paste --type text --watch cliphist store
-exec --no-startup-id wl-paste --type image --watch cliphist store
+# Battery low warning daemon
+exec_always --no-startup-id sh -c 'pkill -x battery-warn; $HOME/bin/battery-warn'
 
 # Screen temperature (redshift replacement)
 exec --no-startup-id gammastep -m wayland -c ~/.config/gammastep/config.ini

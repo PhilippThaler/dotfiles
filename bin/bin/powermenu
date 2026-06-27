@@ -47,6 +47,6 @@ case "$CHOICE" in
     *"Power Off"*) systemctl poweroff ;;
     *Reboot*) systemctl reboot ;;
     *Suspend*) systemctl suspend ;;
-    *Lock*) swaylock -f -c 000000 ;;
+    *Lock*) swaylock -f ;;
     *"Log Out"*) swaymsg exit ;;
 esac

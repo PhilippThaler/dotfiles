@@ -1,14 +1,22 @@
 #!/bin/bash
+# Move Signal to workspace 4 silently, only if not already there
 CRITERIA="app_id=signal"
 ORIG=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused==true).name')
 
-# Retry until window exists
+# Check if Signal is already on workspace 4
+CURRENT_WS=$(swaymsg -t get_tree | jq -r '.. | select(.app_id? == "signal") | .. | select(.type == "workspace") | .name' | head -1)
+
+if [ "$CURRENT_WS" = "4" ]; then
+    exit 0
+fi
+
+# Wait up to 1s for the window to exist
 for i in $(seq 1 10); do
     if swaymsg "[${CRITERIA}]" move container to workspace 4 2>/dev/null; then
         break
     fi
-    sleep 0.05
+    sleep 0.1
 done
 
-sleep 0.15
-swaymsg workspace "$ORIG"
+# Return to original workspace silently
+swaymsg "[con_id=__focused__]" workspace "$ORIG" 2>/dev/null || swaymsg workspace "$ORIG"

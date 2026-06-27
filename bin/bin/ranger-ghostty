@@ -1,0 +1,6 @@
+#!/bin/bash
+# Wrapper to make ranger use kitty image protocol in Ghostty
+# Ghostty supports the kitty protocol but ranger doesn't detect it
+# because TERM=xterm-ghostty instead of containing 'kitty'
+export TERM=xterm-kitty
+exec ranger "$@"

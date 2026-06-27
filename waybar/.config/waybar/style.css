@@ -11,7 +11,6 @@
 window#waybar {
     background-color: #303446;
     color: #c6d0f5;
-    border-bottom: 2px solid #a6d189;
 }
 
 /* ── Workspaces ── */
@@ -108,7 +107,6 @@ window#waybar {
 #pulseaudio { color: #81c8be; }
 #idle_inhibitor { color: #babbf1; }
 #custom-bluetooth { color: #85c1dc; }
-#custom-cliphist { color: #ef9f76; }
 
 /* ── Extra spacing between cramped right-side modules ── */
 #pulseaudio { margin-right: 4px; }
