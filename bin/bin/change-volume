@@ -1,20 +1,35 @@
 #!/bin/bash
-# changeVolume — Wayland edition
-# Changes volume via amixer/pactl and shows notification via notify-send
+# changeVolume — PipeWire edition
+# Changes volume via pactl and shows notification via notify-send
 
 msgTag="myvolume"
 
-# Change volume (works the same with amixer or pactl)
-amixer -c 0 set Master "$@" > /dev/null
+# Parse arguments: volume change (±5%) and optional unmute
+vol_arg=""
+for arg in "$@"; do
+    case "$arg" in
+        *%+) vol_arg="+${arg%+}" ;;  # 5%+ → +5%
+        *%-) vol_arg="-${arg%-}" ;;  # 5%- → -5%
+        unmute) pactl set-sink-mute @DEFAULT_SINK@ 0 ;;
+        toggle-mute) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+    esac
+done
+
+# Change volume
+[ -n "$vol_arg" ] && pactl set-sink-volume @DEFAULT_SINK@ "$vol_arg"
 
 # Query current volume and mute status
-volume="$(amixer -c 0 get Master | tail -1 | awk '{print $4}' | sed 's/[^0-9]*//g')"
-mute="$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
+volume="$(pactl get-sink-volume @DEFAULT_SINK@ | head -1 | awk '{print $5}' | sed 's/%//')"
+mute="$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')"
 
-if [[ $volume == 0 || "$mute" == "off" ]]; then
+if [[ "$mute" == "yes" ]]; then
     notify-send -a "changeVolume" -u low -i audio-volume-muted \
         -h "string:x-canonical-private-synchronous:$msgTag" \
-        "Volume muted"
+        "Muted"
+elif [[ $volume == 0 ]]; then
+    notify-send -a "changeVolume" -u low -i audio-volume-muted \
+        -h "string:x-canonical-private-synchronous:$msgTag" \
+        "Volume: 0%"
 else
     notify-send -a "changeVolume" -u low -i audio-volume-high \
         -h "string:x-canonical-private-synchronous:$msgTag" \
@@ -22,5 +37,5 @@ else
         "Volume: ${volume}%"
 fi
 
-# Play feedback sound (paplay is Wayland/PipeWire safe)
+# Play feedback sound
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga 2>/dev/null

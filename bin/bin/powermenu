@@ -3,7 +3,7 @@
 
 THEME='
 * {
-    font: "Inconsolada Nerd Font 14";
+    font: "Inconsolata Nerd Font 14";
     background: #303446;
     foreground: #c6d0f5;
 }

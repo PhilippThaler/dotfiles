@@ -27,7 +27,7 @@ blur_xray enable
 layer_effects "waybar" blur enable
 
 # --- Font ---
-font pango:URWGothic-Book 11
+font pango:Inconsolata Nerd Font 11
 
 # --- Floating ---
 floating_modifier $mod
@@ -62,7 +62,6 @@ seat * xcursor_theme capitaine-cursors 36
 #  OUTPUT (monitor) CONFIG
 # ============================================================
 output eDP-1 {
-    bg $HOME/Pictures/wallpaper.jpg fill
     scale 1.5
 }
 
@@ -111,7 +110,7 @@ bindsym $mod+Shift+p exec wdisplays
 # --- Volume controls ---
 bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/bin/change-volume 5%+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/bin/change-volume 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute exec --no-startup-id $HOME/bin/change-volume toggle-mute
 
 # --- Screen brightness ---
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +20%
@@ -220,17 +219,14 @@ for_window [title=".*neomutt.*"] exec --no-startup-id "sleep 0.3; swaymsg [works
 #  FOR_WINDOW RULES
 # ============================================================
 for_window [title="alsamixer"] floating enable, border pixel 1
-for_window [title="Battery Warnung"] sticky enable
 for_window [class="mpv"] floating enable, border pixel 0
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable, border pixel 1
 for_window [class="GParted"] floating enable, border normal
 for_window [title="rofi-cheatsheet-helper"] floating enable, border none
 for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable, sticky enable, border normal
 for_window [class="Simple-scan"] floating enable, border normal
 for_window [class="(?i)System-config-printer.py"] floating enable, border normal
-for_window [class="(?i)virtualbox"] floating enable, border normal
 for_window [urgent=latest] focus
 
 # ============================================================
@@ -336,12 +332,7 @@ exec --no-startup-id /home/philipp/bin/autostart-apps
 exec_always --no-startup-id sh -c 'pkill -x autotiling; autotiling -l 2'
 
 # Screen idle & lock daemon (replaces xidlehook + betterlockscreen + xrandr dimming)
-# All timeouts are relative to last user activity (not cascading like xidlehook)
-exec_always --no-startup-id sh -c 'pkill -x swayidle; exec swayidle -w \
-    timeout 900 "brightnessctl -s set 10%" \
-        resume "brightnessctl -r" \
-    timeout 910 "brightnessctl -r; swaylock -f" \
-    timeout 1510 "systemctl suspend-then-hibernate"'
+exec_always --no-startup-id sh -c 'pkill -x swayidle; exec /home/philipp/bin/swayidle-daemon'
 
 # Waybar (kill old instance before launching, same pattern as polybar)
 exec_always --no-startup-id sh -c 'pkill -x waybar; waybar'

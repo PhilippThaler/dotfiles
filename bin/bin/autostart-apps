@@ -1,14 +1,15 @@
 #!/bin/bash
-# Wait for Signal and Neomutt to start, then go to workspace 1
+# Wait for Signal and Neomutt to appear on workspace 4, then return to ws1.
+# Gives up after 30s if either fails to launch.
 
-# Wait for them to appear
 for i in $(seq 1 30); do
-    if pgrep -x signal-desktop >/dev/null 2>&1 && pgrep -x neomutt >/dev/null 2>&1; then
-        break
+    if swaymsg -t get_tree | grep -q 'signal\|neomutt'; then
+        sleep 0.5
+        swaymsg workspace 1
+        exit 0
     fi
     sleep 1
 done
 
-# Give them time to be moved to ws4
-sleep 1
+# Timed out — switch anyway
 swaymsg workspace 1

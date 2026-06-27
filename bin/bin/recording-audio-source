@@ -14,7 +14,7 @@ fi
 
 # Create null sink
 pw-cli create-node adapter \
-    "{ factory.name=support.null-audio-sink node.name=$MIX_SINK media.class=Audio/Sink object.linger=1 monitor.channel-volumes=true }" \
+    "{ factory.name=support.null-audio-sink node.name=$MIX_SINK media.class=Audio/Sink monitor.channel-volumes=true }" \
     >/dev/null 2>&1
 
 sleep 0.3

@@ -9,6 +9,8 @@ if [ -f "$PIDFILE" ] && kill -0 "$(cat $PIDFILE)" 2>/dev/null; then
     # Stop recording
     kill "$(cat $PIDFILE)" 2>/dev/null
     rm -f "$PIDFILE"
+    # Clean up the PipeWire audio sink
+    pw-cli destroy recording-mix-sink 2>/dev/null
     notify-send "Recording" "Saved to ~/Videos" -u normal
 else
     # Set up combined audio source
