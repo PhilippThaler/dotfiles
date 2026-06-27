@@ -69,7 +69,7 @@
         },
         "format": "{icon}  {capacity}%",
         "format-icons": ["", "", "", "", ""],
-        "tooltip-format": "{time} remaining"
+        "tooltip-format": "{capacity}% | {time}"
     },
 
     "pulseaudio": {
