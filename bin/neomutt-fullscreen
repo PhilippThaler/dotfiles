@@ -1,4 +1,0 @@
-#!/bin/bash
-# Wait for autotiling split then fullscreen the window
-sleep 0.15
-swaymsg "[title=.*neomutt.*]" fullscreen enable 2>/dev/null

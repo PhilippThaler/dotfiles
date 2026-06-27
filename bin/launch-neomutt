@@ -1,6 +1,0 @@
-#!/bin/bash
-# Launch neomutt without autotiling interference
-pkill -STOP autotiling
-ghostty -e neomutt &
-sleep 0.3
-pkill -CONT autotiling
