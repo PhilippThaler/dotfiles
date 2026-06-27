@@ -115,7 +115,7 @@
     "clock": {
         "interval": 5,
         "format": "  {:%Y-%m-%d %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 
     "tray": {
