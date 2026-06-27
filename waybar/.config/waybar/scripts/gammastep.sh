@@ -10,7 +10,7 @@ if pgrep -x gammastep >/dev/null 2>&1; then
         Transition) icon=""; class="transition" ;;
         *)         icon=""; class="off" ;;
     esac
-    echo "{\"text\": \"$icon $temp\", \"class\": \"$class\", \"tooltip\": \"Gammastep: $period ($temp)\"}"
+    echo "{\"text\": \"$icon  $temp\", \"class\": \"$class\", \"tooltip\": \"Gammastep: $period ($temp)\"}"
 else
     echo "{\"text\": \" off\", \"class\": \"off\", \"tooltip\": \"Gammastep not running\"}"
 fi
