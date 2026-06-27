@@ -1,5 +1,5 @@
 #!/bin/bash
-# Toggle a dropdown ghostty terminal in Sway's scratchpad.
+# Toggle a dropdown kitty terminal in Sway's scratchpad.
 
 TITLE="scratchpad_dropdown"
 
@@ -11,5 +11,5 @@ if swaymsg -t get_tree | grep -q "$TITLE"; then
     pkill -f 'ueberzug.*layer' 2>/dev/null
 else
     # No scratchpad yet — launch one
-    ghostty --title="$TITLE" &
+    kitty --title "$TITLE" &
 fi

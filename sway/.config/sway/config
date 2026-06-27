@@ -70,7 +70,7 @@ output eDP-1 {
 # ============================================================
 
 # --- Launch terminal ---
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec kitty
 
 # --- Kill focused window ---
 bindsym $mod+Shift+q kill
@@ -89,7 +89,7 @@ bindsym $mod+n exec --no-startup-id "swaync-client -t"
 
 # --- Launch applications ---
 bindsym $mod+Ctrl+F3 exec pcmanfm
-bindsym $mod+F3 exec ghostty -e ranger
+bindsym $mod+F3 exec kitty ranger
 bindsym $mod+Shift+F3 exec pkexec pcmanfm
 bindsym $mod+F6 exec resetaudio
 
@@ -325,7 +325,7 @@ exec --no-startup-id gammastep -m wayland -c $HOME/.config/gammastep/config.ini
 exec --no-startup-id /usr/bin/kdeconnectd
 exec --no-startup-id sh -c 'sleep 2 && kdeconnect-indicator'
 exec --no-startup-id signal-desktop
-exec --no-startup-id ghostty -e neomutt
+exec --no-startup-id kitty neomutt
 exec --no-startup-id /home/philipp/bin/autostart-apps
 
 # Auto-tiling (uses i3ipc, works with Sway)
