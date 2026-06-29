@@ -3,12 +3,12 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
 DISABLE_COMPFIX="true"
 
-# Cache completions aggressively
+# Cache completions aggressively (Linux compatible)
 autoload -Uz compinit
-if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
-    compinit
-else
+if [[ -n ~/.zcompdump(#qN.m-1) ]]; then
     compinit -C
+else
+    compinit
 fi
 
 source $ZSH/antigen.zsh
@@ -21,6 +21,8 @@ alias zshconfig='nvim ~/.zshrc'
 alias zshenv='nvim ~/.zshenv'
 alias nvimconfig='cd ~/.config/nvim && nvim init.lua && cd -'
 alias i3config='nvim ~/.config/i3/config'
+alias swayconfig='nvim ~/.config/sway/config'
+alias wbconf='cd ~/.config/waybar && nvim ~/.config/waybar/config && cd -'
 alias polyconfig='cd ~/.config/polybar && nvim ~/.config/polybar/config.ini && cd -'
 alias termconf='nvim ~/.config/termite/config'
 alias anticonf='nvim ~/.zsh/.antigenrc'
@@ -41,6 +43,7 @@ alias cdi='zi'
 alias reboot='systemctl reboot'
 alias yay='paru'
 alias ansible-playbook='ansible-playbook --diff'
+alias rtk-pi='RTK_DB_PATH=/tmp/pi-rtk-optimizer/history.db rtk gain'
 
 alias rm="echo -e 'If you want to use rm really, then use \"tp\" or \"rmd\" instead.'; false"
 alias rmd='/usr/bin/rm'
@@ -55,4 +58,4 @@ function $ { "$@" }
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $ZSH/.p10k.zsh ]] && source $ZSH/.p10k.zsh
 eval "$(zoxide init zsh)"
-eval $(keychain --eval -Q --quiet ~/.ssh/ansible_key)
+eval $(keychain --eval --stop others --quiet ~/.ssh/ansible_key)
