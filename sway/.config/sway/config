@@ -1,24 +1,191 @@
-# Sway config file (migrated from i3)
-# Default config location: ~/.config/sway/config
-
-# --- Environment (needed for portals, Firefox on Wayland, etc.) ---
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
-
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-# --- Border & layout defaults ---
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term kitty
+set $menu rofi
+
+### Output configuration
+output * bg /home/philipp/Pictures/wallpaper.jpg fill
+
+output eDP-1 {
+    scale 1.5
+}
+
+### Input configuration
+input type:keyboard {
+    xkb_layout de
+    xkb_variant deadgraveacute
+    xkb_options caps:swapescape
+}
+
+input type:touchpad {
+    tap enabled
+    scroll_factor 1.0
+}
+
+seat * xcursor_theme capitaine-cursors 36
+
+
+### Keybindings
+#
+# Basics:
+#
+    # Launch terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # xkill-style: click on a window to kill it
+    bindsym $mod+Shift+x exec --no-startup-id $HOME/bin/force-kill
+
+    # Lock screen
+    bindsym $mod+Mod1+l exec swaylock -f
+
+    # Rofi
+    bindsym $mod+d exec "rofi -show drun"
+    bindsym $mod+Shift+d exec --no-startup-id "rofimoji"
+    bindsym $mod+Shift+s exec --no-startup-id "rofi -show window"
+    bindsym $mod+c exec --no-startup-id "rofi-cheatsheet-helper"
+
+    # Notifications
+    bindsym $mod+n exec --no-startup-id "swaync-client -t"
+
+    # Launch applications
+    bindsym $mod+F3 exec kitty ranger
+    bindsym $mod+Ctrl+F3 exec pcmanfm
+    bindsym $mod+Shift+F3 exec pkexec pcmanfm
+
+    # Screenshots & Recording
+    bindsym Print exec --no-startup-id $HOME/bin/screenshot-full
+    bindsym $mod+Print exec --no-startup-id $HOME/bin/screenshot-window-clip
+    bindsym $mod+Ctrl+Print exec --no-startup-id $HOME/bin/screenshot-window
+    bindsym $mod+Shift+Print exec --no-startup-id $HOME/bin/screenshot-region
+
+    bindsym $mod+Shift+v exec --no-startup-id $HOME/bin/record-screen
+    bindsym $mod+Ctrl+v exec --no-startup-id $HOME/bin/record-screen region
+
+    # Display settings GUI
+    bindsym $mod+Shift+p exec wdisplays
+
+    # Volume controls
+    bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/bin/change-volume 5%+ unmute
+    bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/bin/change-volume 5%- unmute
+    bindsym XF86AudioMute exec --no-startup-id $HOME/bin/change-volume toggle-mute
+
+    # Screen brightness
+    bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 20%+
+    bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 20%-
+
+#
+# Moving around:
+#
+    # Focus movement 
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    
+    # Move windows 
+    bindsym $mod+Shift+$left exec --no-startup-id $HOME/bin/move-window left
+    bindsym $mod+Shift+$down exec --no-startup-id $HOME/bin/move-window down
+    bindsym $mod+Shift+$up exec --no-startup-id $HOME/bin/move-window up
+    bindsym $mod+Shift+$right exec --no-startup-id $HOME/bin/move-window right
+    
+    # Workspace back-and-forth 
+    bindsym $mod+b workspace back_and_forth
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
+    bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+    
+    # Split orientation 
+    bindsym $mod+q split toggle
+    
+    # Fullscreen 
+    bindsym $mod+f fullscreen toggle
+    
+    # Layout 
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+    
+    # Tiling / floating toggle 
+    bindsym $mod+Shift+space floating toggle
+    
+    # Focus mode toggle 
+    bindsym $mod+space focus mode_toggle
+    
+    # Focus parent 
+    bindsym $mod+a focus parent
+    
+    # Workspace next/prev 
+    bindsym $mod+Ctrl+$right workspace next
+    bindsym $mod+Ctrl+$left workspace prev
+
+#
+# Workspaces:
+#
+    # Switch to workspace
+    set $ws1 1
+    set $ws2 2
+    set $ws3 3
+    set $ws4 4
+    set $ws5 5
+    set $ws6 6
+    set $ws7 7
+    set $ws8 8
+    set $ws9 9
+    
+    # Switch to workspace
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    
+    # Move container to workspace
+    bindsym $mod+Ctrl+1 move container to workspace $ws1
+    bindsym $mod+Ctrl+2 move container to workspace $ws2
+    bindsym $mod+Ctrl+3 move container to workspace $ws3
+    bindsym $mod+Ctrl+4 move container to workspace $ws4
+    bindsym $mod+Ctrl+5 move container to workspace $ws5
+    bindsym $mod+Ctrl+6 move container to workspace $ws6
+    bindsym $mod+Ctrl+7 move container to workspace $ws7
+    bindsym $mod+Ctrl+8 move container to workspace $ws8
+    bindsym $mod+Ctrl+9 move container to workspace $ws9
+    
+    # Move to workspace with focused container
+    bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+
+# Border & layout defaults 
 default_border pixel 0
 default_floating_border normal
 hide_edge_borders none
 
-# --- Gaps ---
+# Gaps 
 gaps inner 30
 gaps outer 10
 smart_gaps on
 smart_borders on
 
-# --- SwayFX eye candy ---
+# SwayFX eye candy 
 corner_radius 8
 shadows enable
 shadows_on_csd enable
@@ -26,197 +193,37 @@ blur enable
 blur_xray enable
 layer_effects "waybar" blur enable
 
-# --- Font ---
+# Font 
 font pango:Inconsolata Nerd Font 11
 
-# --- Floating ---
-floating_modifier $mod
+# Floating 
+floating_modifier $mod normal
 floating_minimum_size 75 x 50
 floating_maximum_size 1200 x 600
 
-# --- Focus follows mouse ---
+# Focus follows mouse 
 focus_follows_mouse no
 
-# --- Workspace back-and-forth ---
+# Workspace back-and-forth 
 workspace_auto_back_and_forth yes
 
-# ============================================================
-#  KEYBOARD / INPUT
-# ============================================================
-# Swap Caps Lock and Escape
-input * {
-    xkb_layout de
-    xkb_variant deadgraveacute
-    xkb_options caps:swapescape
-}
-
-input 1739:0:Synaptics_TM3289-002 {
-    tap enabled
-    scroll_factor 0.5
-}
-
-# Cursor
-seat * xcursor_theme capitaine-cursors 36
 
 # ============================================================
-#  OUTPUT (monitor) CONFIG
-# ============================================================
-output eDP-1 {
-    scale 1.5
-}
-
-# ============================================================
-#  KEYBINDINGS
-# ============================================================
-
-# --- Launch terminal ---
-bindsym $mod+Return exec kitty
-
-# --- Kill focused window ---
-bindsym $mod+Shift+q kill
-# xkill-style: click on a window to kill it
-bindsym $mod+Shift+x exec --no-startup-id $HOME/bin/force-kill
-
-# --- Lock screen ---
-bindsym $mod+Mod1+l exec swaylock -f
-
-# --- Application launcher (rofi-wayland) ---
-bindsym $mod+d exec --no-startup-id "rofi -modi window,drun,run -show drun"
-bindsym $mod+Shift+d exec --no-startup-id "rofimoji"
-bindsym $mod+Shift+s exec --no-startup-id "rofi -modi window,drun,run -show window"
-bindsym $mod+c exec --no-startup-id "rofi-cheatsheet-helper"
-bindsym $mod+n exec --no-startup-id "swaync-client -t"
-
-# --- Launch applications ---
-bindsym $mod+Ctrl+F3 exec pcmanfm
-bindsym $mod+F3 exec kitty ranger
-bindsym $mod+Shift+F3 exec pkexec pcmanfm
-bindsym $mod+F6 exec resetaudio
-
-# --- Screenshots & Recording ---
-bindsym $mod+Shift+v exec --no-startup-id $HOME/bin/record-screen
-bindsym $mod+Ctrl+v exec --no-startup-id $HOME/bin/record-screen region
-
-bindsym Print exec --no-startup-id $HOME/bin/screenshot-full
-bindsym $mod+Ctrl+Print exec --no-startup-id $HOME/bin/screenshot-window
-bindsym $mod+Print exec --no-startup-id $HOME/bin/screenshot-window-clip
-bindsym $mod+Shift+Print exec --no-startup-id $HOME/bin/screenshot-region
-
-# --- Layout manager ---
-# i3-layout-manager not available on Wayland
-# Display settings GUI
-bindsym $mod+Shift+p exec wdisplays
-
-# --- Volume controls ---
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/bin/change-volume 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/bin/change-volume 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id $HOME/bin/change-volume toggle-mute
-
-# --- Screen brightness ---
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +20%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 20%-
-
-# --- Keyboard backlight toggle ---
-bindsym $mod+F11 exec --no-startup-id $HOME/bin/kbd-toggle
-
-# --- Focus movement ---
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# --- Move windows ---
-bindsym $mod+Shift+h exec --no-startup-id $HOME/bin/move-window left
-bindsym $mod+Shift+j exec --no-startup-id $HOME/bin/move-window down
-bindsym $mod+Shift+k exec --no-startup-id $HOME/bin/move-window up
-bindsym $mod+Shift+l exec --no-startup-id $HOME/bin/move-window right
-
-# --- Workspace back-and-forth ---
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-
-# --- Split orientation ---
-bindsym $mod+q split toggle
-
-# --- Fullscreen ---
-bindsym $mod+f fullscreen toggle
-
-# --- Layout ---
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# --- Tiling / floating toggle ---
-bindsym $mod+Shift+space floating toggle
-
-# --- Focus mode toggle ---
-bindsym $mod+space focus mode_toggle
-
-# --- Focus parent ---
-bindsym $mod+a focus parent
-
-# --- Workspace next/prev ---
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
-# ============================================================
-#  WORKSPACES
-# ============================================================
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
-
-# Switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-
-# Move container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
-
-# Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-
-# ============================================================
-#  ASSIGN WINDOWS TO WORKSPACES
+# ASSIGN WINDOWS TO WORKSPACES
 # ============================================================
 assign [app_id="spotify"] $ws5
 assign [class="Spotify"] $ws5
-# --- Signal & Neomutt on workspace 4 ---
-no_focus [app_id="signal"]
-no_focus [title=".*neomutt.*"]
-for_window [app_id="signal" title="Signal"] exec --no-startup-id $HOME/bin/signal-ws4
-for_window [title=".*neomutt.*"] exec --no-startup-id $HOME/bin/neomutt-ws4
-for_window [title=".*neomutt.*"] exec --no-startup-id "sleep 0.3; swaymsg [workspace=4] layout stacking"
+assign [app_id="siggy"] $ws4 
+assign [app_id="neomutt"] $ws4 
+# Signal & Neomutt on workspace 4 
+# no_focus [app_id="signal"]
+# no_focus [title=".*neomutt.*"]
+# for_window [app_id="signal" title="Signal"] exec --no-startup-id $HOME/bin/signal-ws4
+# for_window [title=".*neomutt.*"] exec --no-startup-id $HOME/bin/neomutt-ws4
+# for_window [title=".*neomutt.*"] exec --no-startup-id "sleep 0.3; swaymsg [workspace=4] layout stacking"
 
 # ============================================================
-#  FOR_WINDOW RULES
+# FOR_WINDOW RULES
 # ============================================================
 for_window [title="alsamixer"] floating enable, border pixel 1
 for_window [class="mpv"] floating enable, border pixel 0
@@ -230,19 +237,19 @@ for_window [class="(?i)System-config-printer.py"] floating enable, border normal
 for_window [urgent=latest] focus
 
 # ============================================================
-#  SCRATCHPAD (dropdown terminal)
+# SCRATCHPAD (dropdown terminal)
 # ============================================================
 bindsym $mod+minus exec --no-startup-id $HOME/bin/toggle_scratchpad
 for_window [title="scratchpad_dropdown"] floating enable, resize set 1200 1000, move position center, move scratchpad
 
 # ============================================================
-#  MODES
+# MODES
 # ============================================================
 
-# --- Reload ---
+# Reload 
 bindsym $mod+Shift+r reload
 
-# --- Resize mode ---
+# Resize mode 
 bindsym $mod+r mode "resize"
 mode "resize" {
     bindsym h resize shrink width 5 px or 5 ppt
@@ -254,10 +261,10 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-# --- Power menu ---
+# Power menu 
 bindsym $mod+0 exec --no-startup-id $HOME/bin/powermenu
 
-# --- Gaps mode ---
+# Gaps mode 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -295,7 +302,7 @@ mode "$mode_gaps_outer" {
 }
 
 # ============================================================
-#  AUTOSTART
+# AUTOSTART
 # ============================================================
 
 # PolicyKit agent
@@ -303,13 +310,14 @@ exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 
 # XDG Desktop Portal for file pickers (auto-started via D-Bus by applications)
 
-# Wallpaper
-exec --no-startup-id swaybg -i $HOME/Pictures/wallpaper.jpg -m fill
-
 # Network, Bluetooth, Nextcloud tray applets (via snixembed if needed)
 exec --no-startup-id nm-applet
 exec --no-startup-id nextcloud
 exec --no-startup-id opencloud
+
+# KDE Connect
+exec --no-startup-id /usr/bin/kdeconnectd
+exec --no-startup-id sh -c 'sleep 2 && kdeconnect-indicator'
 
 # Notification center
 # swaync is a persistent daemon; start it once if not already running
@@ -321,21 +329,17 @@ exec_always --no-startup-id sh -c 'pkill -x battery-warn; /home/philipp/bin/batt
 # Screen temperature (redshift replacement)
 exec --no-startup-id gammastep -m wayland -c $HOME/.config/gammastep/config.ini
 
-# KDE Connect
-exec --no-startup-id /usr/bin/kdeconnectd
-exec --no-startup-id sh -c 'sleep 2 && kdeconnect-indicator'
-exec --no-startup-id signal-desktop
-exec --no-startup-id kitty neomutt
-exec --no-startup-id /home/philipp/bin/autostart-apps
+exec --no-startup-id kitty --class siggy siggy
+exec --no-startup-id kitty --class neomutt neomutt
+exec --no-startup-id sh -c 'sleep 2; swaymsg [workspace=4] layout stacking'
 
 # Auto-tiling (uses i3ipc, works with Sway)
-exec_always --no-startup-id sh -c 'pkill -x autotiling; autotiling -l 2'
+exec --no-startup-id autotiling -l 2
 
-# Screen idle & lock daemon (replaces xidlehook + betterlockscreen + xrandr dimming)
+# Screen idle & lock daemon
 exec_always --no-startup-id sh -c 'pkill -x swayidle; exec /home/philipp/bin/swayidle-daemon'
 
 # Waybar (kill old instance before launching, same pattern as polybar)
 exec_always --no-startup-id sh -c 'pkill -x waybar; waybar'
 
-# Snixembed — bridges X11 tray icons to Wayland (for nm-applet, blueman-applet, etc.)
-# REMOVED: Conflicts with waybar's native tray support
+include /etc/sway/config.d/*
