@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=siggy
+Comment=Launches the siggy Terminal Signal client
+Icon=utilities-terminal
+Exec=kitty --class siggy siggy
+Categories=Network;InstantMessaging;ConsoleOnly;
+Keywords=Signal;Messenger;Chat;Encrypted;
