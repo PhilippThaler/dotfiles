@@ -44,7 +44,6 @@ alias reboot='systemctl reboot'
 alias yay='paru'
 alias ansible-playbook='ansible-playbook --diff'
 alias rtk-pi='RTK_DB_PATH=/tmp/pi-rtk-optimizer/history.db rtk gain'
-
 alias rm="echo -e 'If you want to use rm really, then use \"tp\" or \"rmd\" instead.'; false"
 alias rmd='/usr/bin/rm'
 alias tp='gtrash put' # trash put
@@ -54,6 +53,40 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 function $ { "$@" }
+
+# A global ansible-playbook function to run playbooks from everywhere
+# Includes autocomplete to show the playbooks
+ap() {
+    if [ -z "$1" ]; then
+        echo "Error: Please specify a playbook."
+        return 1
+    fi
+
+    local playbook="$1"
+    shift
+
+    if [[ -f "$ANSIBLE_BASE_DIR/playbooks/$playbook" ]]; then
+        (cd "$ANSIBLE_BASE_DIR" && ansible-playbook --diff "playbooks/$playbook" "$@")
+    else
+        echo "Error: Playbook not found at $ANSIBLE_BASE_DIR/playbooks/$playbook"
+        return 1
+    fi
+}
+
+_ap_completion() {
+    if [[ -d "$ANSIBLE_BASE_DIR/playbooks" ]]; then
+        local -a files
+        files=( "$ANSIBLE_BASE_DIR"/playbooks/*.y*ml(N:t) )
+        
+        if (( ${#files} > 0 )); then
+            compadd -M 'm:{a-zA-Z}={a-zA-Z} l:|=* r:|=*' -a files
+            return 0
+        fi
+    fi
+}
+
+autoload -Uz compinit && compinit
+compdef _ap_completion ap
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $ZSH/.p10k.zsh ]] && source $ZSH/.p10k.zsh

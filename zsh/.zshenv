@@ -13,6 +13,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
+export ANSIBLE_BASE_DIR=~/Projects/homelab-ansible
 export GOPATH=$HOME/go
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
