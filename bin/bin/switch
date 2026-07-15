@@ -1,5 +1,11 @@
 #!/bin/bash
 
 while true; do
-fusee-nano ~/bin/hekate.bin
-done;
+    output=$(fusee-nano ~/bin/hekate.bin 2>&1)
+    echo "$output"
+    if echo "$output" | grep -q "Smashed the stack"; then
+        echo "byyye....."
+        break
+    fi
+    sleep 1s
+done
